@@ -1,0 +1,173 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>BLOG</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body>
+  <table class="table">
+    <tbody id="test"></tbody>
+  </table>
+  <div class="container-fluid" style="margin-top: 50px;">
+    <div class="col-sm-4">
+      <form method="POST" id="form-artikel" onsubmit="simpan(this,'artikel')" class="form-horizontal">
+        <label class="col-xs-3 control-label">ID: </label>
+        <div class="col-xs-9">
+          <input type="number" name="id" class="form-control">
+        </div>
+        <label class="col-xs-3 control-label">Judul: </label>
+        <div class="col-xs-9">
+          <input type="text" name="judul" class="form-control">
+        </div>
+        <label class="col-xs-3 control-label">Isi Artikel: </label>
+        <div class="col-xs-9">
+          <textarea name="isi" class="form-control"></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Simpan</button>
+          <button type="reset" class="btn btn-warning">Clear</button>
+        </div>
+      </form>
+      <table class="table">
+        <tbody id="tampil-artikel">
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-4">
+      <form method="POST" id="form-user" onsubmit="simpan(this,'user')" class="form-horizontal">
+        <label class="col-xs-3 control-label">ID: </label>
+        <div class="col-xs-9">
+          <input type="number" name="id" class="form-control">
+        </div>
+        <label class="col-xs-3 control-label">Nama: </label>
+        <div class="col-xs-9">
+          <input type="text" name="nama" class="form-control">
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Simpan</button>
+          <button type="reset" class="btn btn-warning">Clear</button>
+        </div>
+      </form>
+      <table class="table">
+        <tbody id="tampil-user">
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-4">
+      <form method="POST" id="form-komentar" onsubmit="simpan(this,'komentar')" class="form-horizontal">
+        <label class="col-xs-3 control-label">ID: </label>
+        <div class="col-xs-9">
+          <input type="number" name="id" class="form-control">
+        </div>
+        <label class="col-xs-3 control-label">Artikel: </label>
+        <div class="col-xs-9">
+          <input type="number" name="artikel" class="form-control">
+        </div>
+        <label class="col-xs-3 control-label">Komentar: </label>
+        <div class="col-xs-9">
+          <textarea name="komentar" class="form-control"></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Simpan</button>
+          <button type="reset" class="btn btn-warning">Clear</button>
+        </div>
+      </form>
+      <table class="table">
+        <tbody id="tampil-komentar">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+<script src="./js/jquery-3.3.1.min.js"></script>
+<script>
+let db = {}
+db.artikel = []
+db.komentar = []
+db.user = []
+
+for (let table of Object.keys(db)) {
+  list(table)
+}
+
+function list(table) {
+  if (localStorage[table]) {
+    db[table] = JSON.parse(localStorage[table])
+
+    let text = ``
+    if (db[table][0]) {
+      text += `<tr>`
+      Object.keys(db[table][0]).forEach((item, index) => {
+        text += `<th>${item.toUpperCase()}</th>`
+      })
+      text += `<th>ACTION</th>`
+      text += `</tr>`
+    }
+
+    for (let i = 0; i < db[table].length; i++) {
+      let row = db[table][i]
+      text += `<tr>`
+      // text += `<td>${i+1}</td>`
+
+      // display column
+      for (let x of Object.keys(row)) {
+        text += `<td>${row[x]}</td>`
+      }
+
+      text += `<td>
+<a class="btn btn-success" onclick="edit(this,${i},'${table}')">Edit</a>
+<a class="btn btn-danger" onclick="del(${i},'${table}')">Delete</a>
+</td></tr>`
+    }
+
+    document.getElementById('tampil-' + table).innerHTML = text
+  }
+}
+
+function simpan(form, table) {
+  event.preventDefault()
+  let tmp = {}
+  if (db[table].lenght > 0) {
+    for (let isiDB of db[table]) {
+      if (isiDB.id == form.id.value) {
+        // kerja 'ubah'
+        for (let d of form) {
+          if (d.name) {
+            isiDB[d.name] = d.value
+          }
+        }
+      }
+    }
+  } else {
+    // kerja 'tambah'
+    for (let d of form) {
+      if (d.name) {
+        tmp[d.name] = d.value
+      }
+    }
+    db[table].push(tmp)
+  }
+
+  localStorage[table] = JSON.stringify(db[table])
+  list(table)
+}
+
+function del(i, table) {
+  db[table].splice(i, 1)
+  localStorage[table] = JSON.stringify(db[table])
+  list(table)
+}
+
+function edit(elm1, i, table) {
+  let form = document.getElementById('form-' + table)
+  for (let f of form) {
+    if (f.name) {
+      f.value = db[table][i][f.name]
+    }
+  }
+}
+</script>
+
+</html>

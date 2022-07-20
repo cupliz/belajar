@@ -1,0 +1,55 @@
+<script>
+  // pendeklarasian variable
+  var variablePertama = 'budi'
+  let variable_kedua = 20
+  const variableketiga = 'tahun'
+  variablePertama = 'andi'
+  variable_kedua = 12
+  // variableketiga = 'abad'
+
+  // pendeklarasian object & array
+  let dataBarang1 = {
+    id: 1,
+    nama: 'Kipas',
+    merk: 'Maspion',
+    kategori: 'elektronik',
+    harga: 220000
+  }
+  let dataBarang2 = {
+    id:2,
+    nama: 'Meja',
+    merk: 'Informa',
+    kategori: 'mebel',
+    harga: 700000
+  }
+  let daftarBarang = [ dataBarang1, dataBarang2,
+    {  
+      id: 3,
+      nama: 'Monitor',
+      merk: 'LG',
+      kategori: 'elektronik',
+      harga: 1200000
+    }
+  ]
+  // console.log(dataBarang1.nama) // mengakses object
+  // console.log(daftarBarang[2]) // mengakses array
+
+  // penggunaan function
+  let dataBelanja = []
+  function beli(id){
+    // let barangTerpilih = {}
+    daftarBarang.map((isian, index)=>{
+      if(isian.id===id){
+        // barangTerpilih = isian
+        dataBelanja.push(isian)
+      }
+    })
+    // retunr barangTerpilih
+  }
+  beli(2)
+  beli(1)
+  beli(3)
+  console.log(dataBelanja)
+  
+
+</script>

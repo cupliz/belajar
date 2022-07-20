@@ -1,0 +1,80 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Biodata</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid" style="margin-top: 50px;">
+    <div class="col-xs-5">
+      <form method="POST" onsubmit="simpan(this)" class="form-horizontal">
+        <label class="col-xs-2 control-label">Nama: </label>
+        <div class="col-xs-10">
+          <input type="text" name="nama" class="form-control">
+        </div>
+
+        <label class="col-xs-2 control-label">Gender: </label>
+        <div class="col-xs-10">
+          <select name="jk" class="form-control">
+            <option value="pria">Laki-laki</option>
+            <option value="wanita">Perempuan</option>
+          </select>
+        </div>
+
+        <label class="col-sm-2 control-label">HP: </label>
+        <div class="col-xs-10">
+          <input type="text" name="hp" class="form-control">
+        </div>
+
+        <div class="text-center">
+        <button type="submit" class="btn btn-primary">Simpan</button>          
+        </div>
+      </form>
+    </div>
+    <div class="col-xs-7">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>J/K</th>
+            <th>Contact</th>
+          </tr>
+        </thead>
+        <tbody id="tampil">
+          
+        </tbody>
+      </table>
+      <!-- <ul id="tampil">empty</ul> -->
+    </div>
+  </div>
+</body>
+<script>
+let datax = [{
+  nama: { depan: 'joni', belakang: 'doel' }
+}]
+console.log(datax[0].nama.depan)
+
+let biodata = []
+
+function simpan(data) {
+  event.preventDefault()
+  biodata.push({ nama: data.nama.value, jk: data.jk.value, hp: data.hp.value })
+  // for (var i = 0; i < biodata.length; i++) {
+  //   console.log(biodata[i])
+  // }
+  // biodata.forEach(function(value,index){
+  //   console.log(value)
+  // })
+  // for(let i in biodata){
+  //   console.log(biodata[i])
+  // }
+  let text = ''
+  for (let bio of biodata) {
+    document.getElementById('tampil').innerHTML = text += `<tr><td>${bio.nama}</td><td>${bio.jk}</td><td>${bio.hp}</td></tr>`
+  }
+}
+</script>
+
+</html>

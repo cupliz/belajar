@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+  <div id="page1">Hello World</div>
+  <div id="page2">Welcome !</div>
+  <button id="hide">Hide</button>
+  <button id="show">Show</button>
+  <button id="toggle">Show/Hide</button>
+  <button id="toggle">Show/Hide</button>
+  <hr>
+  <div>
+    <input type="number" id="angka1" onchange="calc()">
+    <select id="operasi" onchange="calc()">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">x</option>
+      <option value="/">/</option>
+    </select>
+    <input type="number" id="angka2" onchange="calc()">
+    <label>=</label>
+    <input type="text" id="hasil" readonly="">
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script src="test.js"></script> -->
+<!-- <script src="test2.js"></script> -->
+<script src="test3.js"></script>
+<script>
+function calc() {
+  var angka1 = parseInt(document.getElementById('angka1').value)||0
+  var angka2 = parseInt(document.getElementById('angka2').value)||0
+  var operasi = document.getElementById('operasi').value
+  var hasil = document.getElementById('hasil')
+  var result = 0
+    switch (operasi) {
+      case "*":
+        result = angka1 * angka2
+        break;
+      case "+":
+        result = angka1 + angka2
+        break;
+      default:
+        break;
+    }
+
+    hasil.value = result
+}
+</script>
+
+</html>
