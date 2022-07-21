@@ -3,6 +3,7 @@
 <!-- saudara isinya: nama2 saudara -->
 <script>
   const siswa = []
+  
 
   // jika true maka "masih aktif", jika false "sudah tidak aktif"
   console.log('siswa 1 dengan nama, kelas: 2, umur: 19, dan siswa masih aktif')
@@ -10,7 +11,7 @@
   console.log(
     'siswa 1 mempunyai saudara berjumlah 3 dengan nama: joni, joko, juan'
   )
-
+  console.log(siswa[0])
   // mendeklarasikan fungsi dengan cara biasa
   function Tampil() {
     console.log('daftar nama buah')
@@ -34,6 +35,7 @@
   FungsiMakanan('gudeg', 2, ['telur', 'ayam'])
 
   const alamat = { kecamatan: 'ngemplak', kabupaten: 'sleman' }
+  console.log(alamat.kecamatan)
   const FungsiAlamat = (rumahsaya) => {
     // rumahsaya tipe data object
     console.log('alamat rumah saya ' + rumahsaya)
@@ -43,7 +45,7 @@
   }
   FungsiAlamat(alamat)
 
-  const buah = ['mangga', 'jeruk', 'apel', 'nanas', 'leci', 'pepaya']
+  const buah = [{}, 'jeruk', 'apel', 'nanas', 'leci', 'pepaya']
   const FungsiBuah = (param1) => {
     console.log('saya suka buah ' + param1[1])
     const [index1, buah2] = param1

@@ -1,0 +1,88 @@
+<script>
+  const siswa = [`ridwan`, `ahmad`, `salman`, `faris`, `fauzan`];
+
+  console.log(
+    `siswa 1 dengan nama: ridwan, kelas: 3, umur: 17, dan masih aktif`
+  );
+  console.log(`siswa 1 berdomisili di solo, surakarta`);
+  console.log(`siswa 1 memiliki 3 saudara bernama: muahammad, zaidan, faruq`);
+
+  console.log(
+    `siswa 2 dengan nama: saipul, kelas: 12, umur: 18, dan masih aktif`
+  );
+  console.log(`siswa 2 berdomisili di baki, sukohardjo`);
+  console.log(`siswa 2 memiliki 2 saudara bernama: zuhdi, zuhud`);
+
+  const alamat = {
+    jalan: `bunga mawar`,
+    kecamatan: `klaten`,
+    kabupaten: `sukohardjo`,
+    provinsi: `jawa tengan`
+  };
+  const NamaAlamat = (rumah, rumah2, rumah3, rumah4) => {
+    console.log(`alamat rumah saya `);
+    console.log(`jalan ` + rumah);
+    console.log(`kecamatan ` + rumah2);
+    console.log(`kabupaten ` + rumah3);
+    console.log(`provinsi ` + rumah4)
+  };
+  NamaAlamat(`bunga mawar`, `klaten`, `sukohardjo`, `jawa tengah`);
+
+  const saudara = [`zain`, `luthfi`, `abdul`, `saidi`];
+  const NamaSaudara = (kakak1) => {
+    console.log(`nama saudara saya ` + kakak1[1]);
+    const [index1, saudara2] = kakak1;
+    console.log(`nama bapak dia adalah ${index1}, ${saudara2}`);
+    const { jalan } = alamat;
+
+    for (const s of kakak1) {
+      console.log(`kakak saya adalah`, s, `rumahnya di`, jalan);
+    }
+  };
+  NamaSaudara(saudara);
+
+  // const sepupu = [`umar`, `azka`, `qofi`, `muqsith`]
+  // const NamaSepupu = (temen1) => {
+  //   console.log(`nama teman sekelas saya adalah ` + temen1[1])
+  //   const
+  // }
+
+  const murid = [`umar`, `azka`, `qofi`, `muqsith`];
+
+  console.log(
+    `murid 1 dengan nama: umar, kelas: 3, umur: 17, dan masih aktif`
+  );
+  console.log(`murid 1 berdomisili di solo, surakarta`);
+  console.log(`murid 1 memiliki 3 saudari bernama: syarifah, nur, aini`);
+
+  console.log(
+    `murid 2 dengan nama: azka, kelas: 12, umur: 18, dan masih aktif`
+  );
+  console.log(`murid 2 berdomisili di baki, sukohardjo`);
+  console.log(`murid 2 memiliki 2 saudara bernama: muhammad, udin`);
+
+  console.log(
+    `murid 3 dengan nama: qofi, kelas 13, umur: 19, dan masih aktif`
+  )
+  console.log(`murid 3 berdomisili di boyolali, surakarta`)
+  console.log(`murid 3 memiliki saudara bernama: muhammad irsyad`)
+  
+
+
+
+
+
+
+  // const buah = ["mangga", "jeruk", "apel", "nanas", "leci", "pepaya"];
+  // const FungsiBuah = (param1) => {
+  //   console.log("saya suka buah " + param1[1]);
+  //   const [index1, buah2] = param1;
+  //   console.log(`saya sedang makan ${index1} ${buah2}`);
+  //   const { kabupaten } = alamat;
+  //   // perulangan
+  //   for (const b of param1) {
+  //     console.log("saya membeli buah", b, "di", kabupaten);
+  //   }
+  // };
+  // FungsiBuah(buah);
+</script>
