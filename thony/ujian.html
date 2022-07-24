@@ -1,173 +1,140 @@
 <script>
-   const siswa1 = [
-     {
-       nama: "ridwan",
-       umur: 17,
+  const siswa = [
+    {
+      nama: "ridwan",
+      umur: 17,
+      alamat: (jalan = "bunga mawar"),
+      kecamatan: "klaten",
+      kabupaten: "sukohardjo",
+      provinsi: "jawa tengah",
+      namasaudara: ["zain", "luthfi", "asyafah"],
+    },
+    {
+      nama: "ahmad",
+      umur: 20,
+      alamat: (jalan = "mawar indah"),
+      kecamatan: "boyolali",
+      kabupaten: "surakarta",
+      provinsi: "jawa tengah",
+      namasaudara: ["sultan", "farizi",'rudi'],
+    },
+    {
+      nama: "salman",
+      umur: 19,
+      alamat: (jalan = "sinar kasih"),
+      kecamatan: "cimacan",
+      kabupaten: "bogor",
+      provinsi: "jawa barat",
+      namasaudara: ["rozaq", "abin",'tsabit'],
+    },
+    {
+      nama: "faris",
+      umur: 15,
+      alamat: (jalan = "gajah mada"),
+      kecamatan: "wonosari",
+      kabupaten: "gatak",
+      provinsi: "jawa tengah",
+      namasaudara: ["izzad", "saidi",'burhan'],
+    },
+    {
+      nama: "fauzan",
+      umur: 21,
+      alamat: (jalan = "bayan krajan"),
+      kecamatan: "plumpang",
+      kabupaten: "surabaya",
+      provinsi: "jawa timur",
+      namasaudara: ["amar", "yasin",'yusuf'],
+    },
+    {
+      nama: "habeb",
+      umur: 16,
+      alamat: (jalan = "mekar sari"),
+      kecamatan: "karanganyar",
+      kabupaten: "sukohardjo",
+      provinsi: "jawa tengah",
+      namasaudara: ["syakur", "sabil",'ammar'],
+    },
+    {
+      nama: "hakim",
+      umur: 17,
+      alamat: (jalan = "nusa indah"),
+      kecamatan: "gebang",
+      kabupaten: "surakarta",
+      provinsi: "jawa tengah",
+      namasaudara: ["oman", "sujud",'ehsan'],
+    },
+    {
+      nama: "jatsi",
+      umur: 20,
+      alamat: (jalan = "nusa kambangan"),
+      kecamatan: "puncak",
+      kabupaten: "bogor",
+      provinsi: "jawa barat",
+      namasaudara: ["kipli", "dafa",'ridho'],
+    },
+    {
+      nama: "rozzaq",
+      umur: 18,
+      alamat: (jalan = "pilang sari"),
+      kecamatan: "pilang bangu",
+      kabupaten: "sragen",
+      provinsi: "jawa tengah",
+      namasaudara: ["jaka", "jaki",'iyus'],
+    },
+    {
+      nama: "afrizal",
+      umur: 22,
+      alamat: (jalan = "budi utomo"),
+      kecamatan: "batu",
+      kabupaten: "lampung",
+      provinsi: "ntt",
+      namasaudara: ["azmi", "labib",'aas'],
+    },
+  ];
 
-       alamat: (jalan = "bunga mawar"),
-       kecamatan: "klaten",
-       kabupaten: "sukohardjo",
-       provinsi: "jawa tengah",
-       namasaudara: ["zain", "luthfi", "asyafah"],
-     },
-   ];
 
-   const siswa2 = [
-     {
-       nama: "ahmad",
-       umur: 20,
-       alamat: (jalan = "mawar indah"),
-       kecamatan: "boyolali",
-       kabupaten: "surakarta",
-       provinsi: "jawa tengah",
-       namasaudara: ["sultan", "farizi"],
-     },
-   ];
+    const namasiswa = (s10) => {
+      for (const s of s10)
+       
+         console.log('siswa ridwan, kelas:4, umur:9, dan siswa masih aktif')
+         console.log('siswa ridwan berdomisili di jalan bunga mawar, kecamatan: klaten, kabupaten: sukohardjo, provinsi: jawa tengah')
+         console.log('siswa ridwan mempunyai saudara berjumlah 3 dengan nama: zain, luthfi, asyafah')
 
-   const siswa3 = [
-     {
-       nama: "salman",
-       umur: 19,
-       alamat: (jalan = "sinar kasih"),
-       kecamatan: "cimacan",
-       kabupaten: "bogor",
-       provinsi: "jawa barat",
-       namasaudara: ["rozaq", "abin"],
-     },
-   ];
-
-   const siswa4 = [
-     {
-       nama: "faris",
-       umur: 15,
-       alamat: (jalan = "gajah mada"),
-       kecamatan: "wonosari",
-       kabupaten: "gatak",
-       provinsi: "jawa tengah",
-       namasaudara: ["izzad", "saidi"],
-     },
-   ];
-
-   const siswa5 = [
-     {
-       nama: "fauzan",
-       umur: 21,
-       alamat: (jalan = "bayan krajan"),
-       kecamatan: "plumpang",
-       kabupaten: "surabaya",
-       provinsi: 'jawa timur',
-       namasaudara: ["amar", "yasin"],
-     },
-   ];
-
-    const siswa6 = [
-      {
-        nama: 'habeb',
-        umur: 16,
-        alamat: jalan = 'mekar sari',
-        kecamatan: 'karanganyar',
-        kabupaten: 'sukohardjo',
-        provinsi: 'jawa tengah',
-        namasaudara: ['syakur', 'sabil'],
-      }
-    ]
-
-    const siswa7 = [
-      {
-        nama: 'hakim',
-        umur: 17,
-        alamat: jalan = 'nusa indah',
-        kecamatan: 'gebang',
-        kabupaten: 'surakarta',
-        provinsi: 'jawa tengah',
-        namasaudara: ['oman', 'sujud'],
-      }
-    ]
-
-    const siswa8 = [
-      {
-        nama: 'jatsi',
-        umur: 20,
-        alamat: jalan = 'nusa kambangan',
-        kecamatan: 'puncak',
-        kabupaten: 'bogor',
-        provinsi: 'jawa barat',
-        namasaudara: ['kipli', 'dafa'],
-      }
-    ]
-
-    const siswa9 = [
-      {
-        nama: 'rozzaq',
-        umur: 18,
-        alamat: jalan = 'pilang sari',
-        kecamatan: 'pilang bangu',
-        kabupaten: 'sragen',
-        provinsi: 'jawa tengah',
-        namasaudara: ['jaka', 'jaki'],
-      }
-    ]
-
-    const siswa10 = [
-      {
-        nama: 'afrizal',
-        umur: 23,
-        alamat: jalan = 'budi utomo',
-        kecamatan: 'batu',
-        kabupaten: 'lampung',
-        provinsi: 'ntt',
-        namasaudara: ['azmi', 'labib']
-      }
-    ]
+        console.log(siswa[ahmad],[salman],[faris],[fauzan],[habeb],[hakim],[jatsi],[rozzaq],[afrizal])
+    }
 
 
 
-   for (const s of siswa1) {
-     console.log(s);
-   }
-
-   for (const s of siswa2) {
-       console.log(s)
-   }
-
-   for (const s of siswa3) {
-       console.log(s)
-   }
-
-   for (const s of siswa4) {
-       console.log(s)
-   }
-
-   for (const s of siswa5) {
-       console.log(s)
-   }
-   
-   for (const s of siswa6) {
-       console.log(s)
-   }
-
-   for (const s of siswa7) {
-       console.log(s)
-   }
-
-   for (const s of siswa8) {
-       console.log(s)
-   }
-
-   for (const s of siswa9) {
-       console.log(s)
-   }
-
-   for (const s of siswa10) {
-       console.log(s)
-   }
-   
-  
-  console.log(siswa1, siswa2, siswa3, siswa4, siswa5, siswa6, siswa7, siswa8, siswa9, siswa10);
+    namasiswa(siswa)
 
 
 
 
 
 
-</script> 
+
+      //    console.log('nama kakak kelasnya ' + siswa10)
+      //    console.log('siswa barunya adalah ' + siswa4)
+      //    console.log(siswa8 + 'adalah siswa paling pandai')
+      //    console.log()
+      //    console.log()
+      //    console.log()
+      //    console.log()
+      //    console.log()
+      //    console.log()
+      //    console.log()
+      //  }
+       
+      
+         
+         
+       
+          
+
+
+
+
+
+
+ 
+</script>
