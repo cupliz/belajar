@@ -2,51 +2,75 @@
 <!-- alamat isinya: jalan, kecamatan, kabupaten, provinsi -->
 <!-- saudara isinya: nama2 saudara -->
 
-<!DOCTYPE html>
-<html>
-  <body>
-    <h2>JavaScript For Loop</h2>
-
-    <p id="demo"></p>
-
-    <script>
-      let i;
-      for (i = 0; i < 3; i++) {
-        console.log(i);
-      }
-
-      // document.getElementById("demo").innerHTML = text;
-    </script>
-  </body>
-</html>
+<!-- buat fungsi untuk menambah siswa baru, dengan parameter sebuah objek siswa -->
+<!-- buat fungsi untuk menghapus siswa dengan id tertentu (kalau belum ada id, tambahkan id) -->
+<!-- buat fungsi untuk mengganti data siswa dengan parameter (1. id siswa yang akan diganti, 2. object data siswa baru) -->
+<!-- buat fungsi untuk mengurutkan siswa dengan parameter (1. key siswa, 2. asc/desc urut maju atau mundur) -->
 
 <script>
   //numpuk garapan jumat
   let siswa = [
     {
+      Id: 1,
       nama: "agus",
       kelas: 2,
       umur: 7,
-      alamat: ["Jl. slametRiyadi no.131B", "Ngemplak", "Sleman"],
+      alamat: {
+        jalan: "Jl. slametRiyadi no.131B",
+        kecamatan: "Ngemplak",
+        kabupaten: "Sleman",
+      },
       saudara: ["bobi", "coco", "doyok"],
       status: true,
     },
     {
+      Id: 2,
       nama: "budi",
       kelas: 3,
       umur: 8,
-      alamat: ["Jl. pierreTendean no.127A", "Babarsari", "Sleman"],
+      alamat: {
+        jalan: "Jl. pierreTendean no.127A",
+        kecamatan: "Babarsari",
+        kabupaten: "Sleman",
+      },
       saudara: ["adi", "vivo", "bari"],
       status: true,
     },
   ];
-  // const siswa1 = siswa;
-  console.log(siswa);
-
-  for (index = 0; index < 10; index++) {
+  // console.log(siswa);
+  for (let index = 0; index < siswa.length; index++) {
     console.log(siswa[index], "looping siswa");
-    // console.log(typeof index++);
   }
+
+  let siswa2 = {
+    Id: 3,
+    nama: "dele",
+    kelas: 2,
+    umur: 8,
+    alamat: {
+      jalan: "Jl. bambang no.132B",
+      kecamatan: "Tarik",
+      kabupaten: "Sidoarjo",
+    },
+    saudara: ["zuzu", "yeye", "xixi"],
+    status: true,
+  };
+  // fungsi tambah = menambahkan object "data siswa" ke dalam array "siswa"
+  const tambah = () => {
+    let siswaNew = siswa.push(siswa2);
+
+    console.log(siswa, "fungsi tambah");
+  };
+  tambah();
+
+  var id = 2; // id yg dihapus dimasukkan ke sini
+  var indexsiswa = siswa
+    .map((x) => {
+      return x.Id;
+    })
+    .indexOf(id);
+  siswa.splice(indexsiswa, 1);
+  console.log(siswa, "siswa setelah delete index");
 
   // jika true maka "masih aktif", jika false "sudah tidak aktif"
   // console.log("siswa 1 dengan nama, kelas: 2, umur: 19, dan siswa masih aktif");
