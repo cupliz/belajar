@@ -1,58 +1,124 @@
 <!-- nama, kelas, umur, alamat, saudara, active -->
 <!-- alamat isinya: jalan, kecamatan, kabupaten, provinsi -->
 <!-- saudara isinya: nama2 saudara -->
+
+<!-- buat fungsi untuk menambah siswa baru, dengan parameter sebuah objek siswa -->
+<!-- buat fungsi untuk menghapus siswa dengan id tertentu (kalau belum ada id, tambahkan id) -->
+<!-- buat fungsi untuk mengganti data siswa dengan parameter (1. id siswa yang akan diganti, 2. object data siswa baru) -->
+<!-- buat fungsi untuk mengurutkan siswa dengan parameter (1. key siswa, 2. asc/desc urut maju atau mundur) -->
+
 <script>
-  const siswa = []
+  //numpuk garapan jumat
+  let siswa = [
+    {
+      Id: 1,
+      nama: "agus",
+      kelas: 2,
+      umur: 7,
+      alamat: {
+        jalan: "Jl. slametRiyadi no.131B",
+        kecamatan: "Ngemplak",
+        kabupaten: "Sleman",
+      },
+      saudara: ["bobi", "coco", "doyok"],
+      status: true,
+    },
+    {
+      Id: 2,
+      nama: "budi",
+      kelas: 3,
+      umur: 8,
+      alamat: {
+        jalan: "Jl. pierreTendean no.127A",
+        kecamatan: "Babarsari",
+        kabupaten: "Sleman",
+      },
+      saudara: ["adi", "vivo", "bari"],
+      status: true,
+    },
+  ];
+  // console.log(siswa);
+  for (let index = 0; index < siswa.length; index++) {
+    console.log(siswa[index], "looping siswa");
+  }
+
+  let siswa2 = {
+    Id: 3,
+    nama: "dele",
+    kelas: 2,
+    umur: 8,
+    alamat: {
+      jalan: "Jl. bambang no.132B",
+      kecamatan: "Tarik",
+      kabupaten: "Sidoarjo",
+    },
+    saudara: ["zuzu", "yeye", "xixi"],
+    status: true,
+  };
+  // fungsi tambah = menambahkan object "data siswa" ke dalam array "siswa"
+  const tambah = () => {
+    let siswaNew = siswa.push(siswa2);
+
+    console.log(siswa, "fungsi tambah");
+  };
+  tambah();
+
+  var id = 2; // id yg dihapus dimasukkan ke sini
+  var indexsiswa = siswa
+    .map((x) => {
+      return x.Id;
+    })
+    .indexOf(id);
+  siswa.splice(indexsiswa, 1);
+  console.log(siswa, "siswa setelah delete index");
 
   // jika true maka "masih aktif", jika false "sudah tidak aktif"
-  console.log('siswa 1 dengan nama, kelas: 2, umur: 19, dan siswa masih aktif')
-  console.log('siswa 1 berdomisili di ngemplak, sleman')
-  console.log(
-    'siswa 1 mempunyai saudara berjumlah 3 dengan nama: joni, joko, juan'
-  )
+  // console.log("siswa 1 dengan nama, kelas: 2, umur: 19, dan siswa masih aktif");
+  // console.log("siswa 1 berdomisili di ngemplak, sleman");
+  // console.log("siswa 1 mempunyai saudara berjumlah 3 dengan nama: joni, joko, juan");
 
   // mendeklarasikan fungsi dengan cara biasa
-  function Tampil() {
-    console.log('daftar nama buah')
-    console.log('daftar nama sayuran')
-    const sayuran = 'wortel'
-    console.log('agus membeli ' + sayuran)
-    const buah = 'mangga'
-    console.log('toni membeli ' + buah)
-  }
+  // function Tampil() {
+  //   console.log("daftar nama buah");
+  //   console.log("daftar nama sayuran");
+  //   const sayuran = "wortel";
+  //   console.log("agus membeli " + sayuran);
+  //   const buah = "mangga";
+  //   console.log("toni membeli " + buah);
+  // }
   // menjalankan fungsi
-  Tampil()
+  // Tampil();
 
   // mendeklarasikan fungsi menggurakan cara arrow function
-  const FungsiMakanan = (param3, param2, parameter) => {
-    // isi dan tipe data parameter sesuai dengan pemanggilnya
-    console.log('daftar nama makanan')
-    console.log('saya akan membeli ' + parameter)
-    console.log('jumlah ' + param2)
-    console.log('dengan lauk ' + param3)
-  }
-  FungsiMakanan('gudeg', 2, ['telur', 'ayam'])
+  // const FungsiMakanan = (param3, param2, parameter) => {
+  // isi dan tipe data parameter sesuai dengan pemanggilnya
+  // console.log("daftar nama makanan");
+  // console.log("saya akan membeli " + parameter);
+  // console.log("jumlah " + param2);
+  // console.log("dengan lauk " + param3);
+  // };
+  // FungsiMakanan("gudeg", 2, ["telur", "ayam"]);
 
-  const alamat = { kecamatan: 'ngemplak', kabupaten: 'sleman' }
-  const FungsiAlamat = (rumahsaya) => {
-    // rumahsaya tipe data object
-    console.log('alamat rumah saya ' + rumahsaya)
-    console.log('kecamatan: ' + rumahsaya.kecamatan)
-    const { kabupaten } = rumahsaya
-    console.log('kabupaten: ' + kabupaten)
-  }
-  FungsiAlamat(alamat)
+  // const alamat = { kecamatan: "ngemplak", kabupaten: "sleman" };
+  // const FungsiAlamat = (rumahsaya) => {
+  // rumahsaya tipe data object
+  // console.log("alamat rumah saya " + rumahsaya);
+  // console.log("kecamatan: " + rumahsaya.kecamatan);
+  // const { kabupaten } = rumahsaya;
+  // console.log("kabupaten: " + kabupaten);
+  // };
+  // FungsiAlamat(alamat);
 
-  const buah = ['mangga', 'jeruk', 'apel', 'nanas', 'leci', 'pepaya']
-  const FungsiBuah = (param1) => {
-    console.log('saya suka buah ' + param1[1])
-    const [index1, buah2] = param1
-    console.log(`saya sedang makan ${index1} ${buah2}`)
-    const { kabupaten } = alamat
-    // perulangan
-    for (const b of param1) {
-      console.log('saya membeli buah', b, 'di', kabupaten)
-    }
-  }
-  FungsiBuah(buah)
+  // const buah = ["mangga", "jeruk", "apel", "nanas", "leci", "pepaya"];
+  // const FungsiBuah = (param1) => {
+  // console.log("saya suka buah " + param1[1]);
+  // const [index1, buah2] = param1;
+  // console.log(`saya sedang makan ${index1} ${buah2}`);
+  // const { kabupaten } = alamat;
+  // perulangan
+  // for (const b of param1) {
+  // console.log("saya membeli buah", b, "di", kabupaten);
+  // }
+  // };
+  // FungsiBuah(buah);
 </script>
