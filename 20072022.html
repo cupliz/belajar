@@ -2,57 +2,260 @@
 <!-- alamat isinya: jalan, kecamatan, kabupaten, provinsi -->
 <!-- saudara isinya: nama2 saudara -->
 <script>
-  const siswa = []
+  const siswa = [
+    {
+      nama : "bagus sambudi",
+      kelas : 3,
+      umur : 9,
+      alamat : {
+        jalan: "jalan merdeka no 17",
+        kecamatan : "sleman",
+        kabupaten : "sleman",
+        provinsi : "Yogyakarta"
+      },
+      saudara : [
+        "indah", "jaya"
+      ],
+      active : true
+    },
+    {
+      nama : "susi setyorini",
+      kelas : 3,
+      umur : 10,
+      alamat : {
+        jalan: "jalan pancasila no 3",
+        kecamatan : "turi",
+        kabupaten : "sleman",
+        provinsi : "Yogyakarta"
+      },
+      saudara : [
+        "marco", "steven"
+      ],
+      active : false
+    },
+    {
+      nama : "anggita dewita",
+      kelas : 3,
+      umur : 9,
+      alamat : {
+        jalan: "jalan merbabu no 3",
+        kecamatan : "turi",
+        kabupaten : "sleman",
+        provinsi : "Yogyakarta"
+      },
+      saudara : [
+        "dewi"
+      ],
+      active : true
+    },
+    {
+      nama : "Yogi devano",
+      kelas : 3,
+      umur : 10,
+      alamat : {
+        jalan: "jalan nangka no 3",
+        kecamatan : "turi",
+        kabupaten : "sleman",
+        provinsi : "Yogyakarta"
+      },
+      saudara : [],
+      active : false
+    },
+    {
+      nama : "sugi mahadewa",
+      kelas : 3,
+      umur : 10,
+      alamat : {
+        jalan: "jalan persatuan no 3",
+        kecamatan : "sleman",
+        kabupaten : "sleman",
+        provinsi : "Yogyakarta"
+      },
+      saudara : [
+        "purwoto", "ronaldo","nurgianto"
+      ],
+      active : true
+    },
+    {
+      nama : "naruto ",
+      kelas : 3,
+      umur : 10,
+      alamat : {
+        jalan: "jalan konoha no 3",
+        kecamatan : "sleman",
+        kabupaten : "sleman",
+        provinsi : "Yogyakarta"
+      },
+      saudara : [
+        "sasuke", "hinata","sakura"
+      ],
+      active : false
+    },
+    {
+      nama : "luffy ",
+      kelas : 3,
+      umur : 10,
+      alamat : {
+        jalan: "jalan onepiece no 3",
+        kecamatan : "sleman",
+        kabupaten : "sleman",
+        provinsi : "Yogyakarta"
+      },
+      saudara : [
+        "zoro", "sanji"
+      ],
+      active : false
+    },
+    {
+      nama : "Agung Budi",
+      kelas : 3,
+      umur : 9,
+      alamat : {
+        jalan: "jalan cendrawasih no 10",
+        kecamatan : "depok",
+        kabupaten : "sleman",
+        provinsi : "Yogyakarta"
+      },
+      saudara : [
+        "sudarmanto"
+      ],
+      active : true
+    },
+    {
+      nama : "Otogakure",
+      kelas : 3,
+      umur : 8,
+      alamat : {
+        jalan: "jalan dosu no 10",
+        kecamatan : "ngemplak",
+        kabupaten : "sleman",
+        provinsi : "Yogyakarta"
+      },
+      saudara : [
+        "zabuza","haku"
+      ],
+      active : true
+    },
+    {
+      nama : "Inuzuka Kiba",
+      kelas : 3,
+      umur : 8,
+      alamat : {
+        jalan: "jalan dosu no 10",
+        kecamatan : "ngemplak",
+        kabupaten : "sleman",
+        provinsi : "Yogyakarta"
+      },
+      saudara : [
+        "Aburame Shino","Hinata Hyuga"
+      ],
+      active : true
+    },
 
+  ]
   // jika true maka "masih aktif", jika false "sudah tidak aktif"
-  console.log('siswa 1 dengan nama, kelas: 2, umur: 19, dan siswa masih aktif')
-  console.log('siswa 1 berdomisili di ngemplak, sleman')
-  console.log(
-    'siswa 1 mempunyai saudara berjumlah 3 dengan nama: joni, joko, juan'
-  )
+  
+  // pengulangan menggunakan for
+  console.log("pengulangan menggunakan for of")
+  for([index,data] of siswa.entries()){
+    var status = "masih aktif";
+    if(data['active'] === false){
+      status = "sudah tidak aktif"
+    }
+    console.log('siswa '+(index+1)+' dengan nama '+data['nama']+', kelas: '+data['kelas']+', umur: '+data['umur']+', dan siswa '+status)
+
+    console.log('siswa '+(index+1)+' berdomisili di '+ data.alamat.kecamatan +', '+ data.alamat.kabupaten)
+    
+    console.log('siswa '+(index+1)+' mempunyai saudara berjumlah '+ data['saudara'].length+ ' dengan nama: '+ data['saudara'])
+  }
+
+  // pengulangan menggunakan for In
+  // console.log("pengulangan menggunakan for in")
+  // for(index in siswa){
+  //   console.log(data);
+  //   var status = "masih aktif";
+  //   if(data['active'] === false){
+  //     status = "sudah tidak aktif"
+  //   }
+  //   console.log('siswa  dengan nama '+data['nama']+', kelas: '+data['kelas']+', umur: '+data['umur']+', dan siswa '+status)
+
+  //   console.log('siswa  berdomisili di '+ data.alamat.kecamatan +', '+ data.alamat.kabupaten)
+    
+  //   console.log('siswa  mempunyai saudara berjumlah '+ data['saudara'].length+ ' dengan nama: '+ data['saudara'])
+  // }
+  
+  
+  // pengulangan menggunakan foreach 
+  console.log("pengulangan menggunakan foreach")
+  siswa.forEach( (data,index) => {
+    
+    var status = "masih aktif";
+    if(data['active'] === false){
+      status = "sudah tidak aktif"
+    }
+    console.log('siswa '+(index+1)+' dengan nama '+data['nama']+', kelas: '+data['kelas']+', umur: '+data['umur']+', dan siswa '+status)
+    console.log('siswa '+(index+1)+' berdomisili di '+ data.alamat.kecamatan +', '+ data.alamat.kabupaten)
+    console.log('siswa '+(index+1)+' mempunyai saudara berjumlah '+ data['saudara'].length+ ' dengan nama: '+ data['saudara'])
+  });
+
+  // pengulangan menggunakan map
+  console.log("pengulangan menggunakan map")
+  siswa.map((data,index) => {
+    var status = "masih aktif";
+    if(data['active'] === false){
+      status = "sudah tidak aktif"
+    }
+    console.log('siswa '+(index+1)+' dengan nama '+data['nama']+', kelas: '+data['kelas']+', umur: '+data['umur']+', dan siswa '+status)
+    console.log('siswa '+(index+1)+' berdomisili di '+ data.alamat.kecamatan +', '+ data.alamat.kabupaten)
+    console.log('siswa '+(index+1)+' mempunyai saudara berjumlah '+ data['saudara'].length+ ' dengan nama: '+ data['saudara'])
+  });
+
+  
+  
+ 
 
   // mendeklarasikan fungsi dengan cara biasa
-  function Tampil() {
-    console.log('daftar nama buah')
-    console.log('daftar nama sayuran')
-    const sayuran = 'wortel'
-    console.log('agus membeli ' + sayuran)
-    const buah = 'mangga'
-    console.log('toni membeli ' + buah)
-  }
+  // function Tampil() {
+  //   console.log('daftar nama buah')
+  //   console.log('daftar nama sayuran')
+  //   const sayuran = 'wortel'
+  //   console.log('agus membeli ' + sayuran)
+  //   const buah = 'mangga'
+  //   console.log('toni membeli ' + buah)
+  // }
   // menjalankan fungsi
-  Tampil()
+  // Tampil()
 
   // mendeklarasikan fungsi menggurakan cara arrow function
-  const FungsiMakanan = (param3, param2, parameter) => {
-    // isi dan tipe data parameter sesuai dengan pemanggilnya
-    console.log('daftar nama makanan')
-    console.log('saya akan membeli ' + parameter)
-    console.log('jumlah ' + param2)
-    console.log('dengan lauk ' + param3)
-  }
-  FungsiMakanan('gudeg', 2, ['telur', 'ayam'])
+  // const FungsiMakanan = (param3, param2, parameter) => {
+  //   // isi dan tipe data parameter sesuai dengan pemanggilnya
+  //   console.log('daftar nama makanan')
+  //   console.log('saya akan membeli ' + parameter)
+  //   console.log('jumlah ' + param2)
+  //   console.log('dengan lauk ' + param3)
+  // }
+  // FungsiMakanan('gudeg', 2, ['telur', 'ayam'])
 
-  const alamat = { kecamatan: 'ngemplak', kabupaten: 'sleman' }
-  const FungsiAlamat = (rumahsaya) => {
-    // rumahsaya tipe data object
-    console.log('alamat rumah saya ' + rumahsaya)
-    console.log('kecamatan: ' + rumahsaya.kecamatan)
-    const { kabupaten } = rumahsaya
-    console.log('kabupaten: ' + kabupaten)
-  }
-  FungsiAlamat(alamat)
+  // const alamat = { kecamatan: 'ngemplak', kabupaten: 'sleman' }
+  // const FungsiAlamat = (rumahsaya) => {
+  //   // rumahsaya tipe data object
+  //   console.log('alamat rumah saya ' + rumahsaya)
+  //   console.log('kecamatan: ' + rumahsaya.kecamatan)
+  //   const { kabupaten } = rumahsaya
+  //   console.log('kabupaten: ' + kabupaten)
+  // }
+  // FungsiAlamat(alamat)
 
-  const buah = ['mangga', 'jeruk', 'apel', 'nanas', 'leci', 'pepaya']
-  const FungsiBuah = (param1) => {
-    console.log('saya suka buah ' + param1[1])
-    const [index1, buah2] = param1
-    console.log(`saya sedang makan ${index1} ${buah2}`)
-    const { kabupaten } = alamat
-    // perulangan
-    for (const b of param1) {
-      console.log('saya membeli buah', b, 'di', kabupaten)
-    }
-  }
-  FungsiBuah(buah)
+  // const buah = ['mangga', 'jeruk', 'apel', 'nanas', 'leci', 'pepaya']
+  // const FungsiBuah = (param1) => {
+  //   console.log('saya suka buah ' + param1[1])
+  //   const [index1, buah2] = param1
+  //   console.log(`saya sedang makan ${index1} ${buah2}`)
+  //   const { kabupaten } = alamat
+  //   // perulangan
+  //   for (const b of param1) {
+  //     console.log('saya membeli buah', b, 'di', kabupaten)
+  //   }
+  // }
+  // FungsiBuah(buah)
 </script>
