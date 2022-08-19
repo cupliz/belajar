@@ -1,0 +1,103 @@
+<!-- nama, kelas, umur, alamat, saudara, active -->
+<!-- alamat isinya: jalan, kecamatan, kabupaten, provinsi -->
+<!-- saudara isinya: nama2 saudara -->
+
+<!-- buat fungsi untuk menambah siswa baru, dengan parameter sebuah objek siswa -->
+<!-- buat fungsi untuk menghapus siswa dengan id tertentu (kalau belum ada id, tambahkan id) -->
+<!-- buat fungsi untuk mengganti data siswa dengan parameter (1. id siswa yang akan diganti, 2. object data siswa baru) -->
+<!-- buat fungsi untuk mengurutkan siswa dengan parameter (1. key siswa, 2. asc/desc urut maju atau mundur) -->
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <script>
+    const siswa = [
+      {
+        Id: 1,
+        nama: "agus",
+        kelas: 2,
+        umur: 7,
+        alamat: {
+          jalan: "Jl. slametRiyadi no.131B",
+          kecamatan: "Ngemplak",
+          kabupaten: "Sleman",
+        },
+        saudara: ["aaa", "bbb", "ccc"],
+        status: true,
+      },
+      {
+        Id: 2,
+        nama: "budi",
+        kelas: 2,
+        umur: 8,
+        alamat: {
+          jalan: "Jl. pierreTendean no.127A",
+          kecamatan: "Babarsari",
+          kabupaten: "Sleman",
+        },
+        saudara: ["ddd", "eee", "fff"],
+        status: true,
+      },
+      {
+        Id: 3,
+        nama: "coco",
+        kelas: 4,
+        umur: 10,
+        alamat: {
+          jalan: "Jl. pierreTendean no.127A",
+          kecamatan: "Laweyan",
+          kabupaten: "Surakarta",
+        },
+        saudara: [],
+        status: true,
+      },
+      {
+        Id: 4,
+        nama: "doni",
+        kelas: 3,
+        umur: 8,
+        alamat: {
+          jalan: "Jl. teri no.131",
+          kecamatan: "Genteng",
+          kabupaten: "Banyuwangi",
+        },
+        saudara: ["ggg"],
+        status: true,
+      },
+      {
+        Id: 5,
+        nama: "budi",
+        kelas: 6,
+        umur: 11,
+        alamat: {
+          jalan: "Jl. peyek no.133",
+          kecamatan: "Tarik",
+          kabupaten: "Sidoarjo",
+        },
+        saudara: ["hhh", "xyz"],
+        status: true,
+      },
+    ];
+  </script>
+  <script>
+    //numpuk garapan jumat
+    console.log(siswa, "ini siswa baris 49");
+
+    const tampilkanRequest = (x, y, z) => {
+      const peyek = siswa.filter(siswa => siswa.alamat.kabupaten === x)
+      console.log(peyek);
+    }
+    <button></button>
+    tampilkanRequest("Sleman")
+
+
+    // console.log(tampilkanRequest(siswa, 'Sleman', idnex));
+    // console.log(tampilkanRequest(siswa, 'Sidoarjo'));
+
+  </script>
+</body>
+
+</html>

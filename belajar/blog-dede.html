@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>artikel</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container-fluid" style="margin-top: 50px;">
+    <div class="col-sm-6">
+      <form method="POST" onsubmit="simpanartikel(this)" class="form-horizontal">
+        <label class="col-xs-3 control-label">Id Artikel: </label>
+        <div class="col-xs-9">
+          <input type="text" name="idartikel" class="form-control">
+        </div>
+        <label class="col-xs-3 control-label">Judul: </label>
+        <div class="col-xs-9">
+          <input type="text" name="judul" class="form-control">
+        </div>
+        <label class="col-xs-3 control-label">Isi Artikel: </label>
+        <div class="col-xs-9">
+          <textarea type="text" class="form-control" name="isiartikel"></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-6">
+      <form method="POST" onsubmit="simpankomentar(this)" class="form-horizontal">
+        <label class="col-xs-3 control-label">Id Komentar: </label>
+        <div class="col-xs-9">
+          <input type="text" name="idkomentar" class="form-control">
+        </div>
+        <label class="col-xs-3 control-label">Artikel: </label>
+        <div class="col-xs-9">
+          <input type="text" name="pilihartikel" class="form-control">
+        </div>
+        <label class="col-xs-3 control-label">Komentar: </label>
+        <div class="col-xs-9">
+          <textarea type="text" class="form-control" name="isikomentar"></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="container-fluid" style="margin-top: 50px;">
+    <div class="col-sm-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id Artikel</th>
+            <th>Judul</th>
+            <th>Isi Artikel</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tampilartikel">
+        </tbody>
+      </table>
+    </div>
+     <div class="col-sm-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id Komentar</th>
+            <th>Artikel</th>
+            <th>Komentar</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tampilkomentar">
+        </tbody>
+      </table>
+    </div>
+</body>
+<script>
+let artikel = []
+listartikel()
+
+let komentar = []
+listkomentar()
+
+function simpanartikel(data) {
+  event.preventDefault()
+  artikel.push({ idartikel: data.idartikel.value, judul: data.judul.value, isiartikel: data.isiartikel.value })
+  // mengubah data dari bentuk object kedalam string 
+  // karena local storage hanya menerima data dalam bentuk string
+  localStorage.artikel = JSON.stringify(artikel)
+  listartikel()
+}
+
+function simpankomentar(data) {
+  event.preventDefault()
+  console.log(data.isikomentar.id,data.isikomentar.value)
+  komentar.push({ idkomentar: data.idkomentar.value, pilihartikel: data.pilihartikel.value, isikomentar: data.isikomentar.type })
+  // mengubah data dari bentuk object kedalam string 
+  // karena local storage hanya menerima data dalam bentuk string
+  localStorage.komentar = JSON.stringify(komentar)
+  listkomentar()
+}
+
+function delartikel(x) {
+  artikel.splice(x, 1)
+  // mengubah data dari bentuk object kedalam string
+  localStorage.artikel = JSON.stringify(artikel)
+  listartikel()
+}
+
+function delkomentar(x) {
+  komentar.splice(x, 1)
+  // mengubah data dari bentuk object kedalam string
+  localStorage.komentar = JSON.stringify(komentar)
+  listkomentar()
+}
+
+function listartikel() {
+  // memunculkan data list
+  // mengubah data dari local storage dengan bentuk string kedalam bentuk object
+  artikel = JSON.parse(localStorage.artikel)
+  let text = ''
+  for (let i in artikel) {
+    text += `
+    <tr>
+      <td>${artikel[i].idartikel}</td>
+      <td>${artikel[i].judul}</td>
+      <td>${artikel[i].isiartikel}</td>
+      <td>
+        <a class="btn btn-success" onclick="editartikel(${i},this)">Edit</a>
+        <a class="btn btn-danger" onclick="delartikel(${i})">Delete</a>
+      </td>
+    </tr>`
+  }
+  document.getElementById('tampilartikel').innerHTML = text
+}
+
+function listkomentar() {
+  // memunculkan data list
+  // mengubah data dari local storage dengan bentuk string kedalam bentuk object
+  komentar = JSON.parse(localStorage.komentar)
+  let text = ''
+  for (let i in komentar) {
+    text += `
+    <tr>
+      <td>${komentar[i].idkomentar}</td>
+      <td>${komentar[i].pilihartikel}</td>
+      <td>${komentar[i].isikomentar}</td>
+      <td>
+        <a class="btn btn-success" onclick="editkomentar(${i},this)">Edit</a>
+        <a class="btn btn-danger" onclick="delkomentar(${i})">Delete</a>
+      </td>
+    </tr>`
+  }
+  document.getElementById('tampilkomentar').innerHTML = text
+}
+
+function editartikel(i, elm1) {
+  var tr = elm1.parentElement.parentElement
+  tr.cells[0].innerHTML = `<input type="text" id="idartikel" size="4" value="${artikel[i].idartikel}"/>`
+  tr.cells[1].innerHTML = `<input type="text" id="judul" size="4" value="${artikel[i].judul}"/>`
+  tr.cells[2].innerHTML = `<input type="text" id="isiartikel" size="4" value="${artikel[i].isiartikel}"/>`
+  tr.cells[3].innerHTML = `
+        <a class="btn btn-success" onclick="saveartikel(${i},this)">Save</a>
+        <a class="btn btn-danger" disabled>Delete</a>`
+
+}
+
+function editkomentar(i, elm1) {
+  var tr = elm1.parentElement.parentElement
+  tr.cells[0].innerHTML = `<input type="text" id="idkomentar" size="4" value="${komentar[i].idkomentar}"/>`
+  tr.cells[1].innerHTML = `<input type="text" id="pilihartikel" size="4" value="${komentar[i].pilihartikel}"/>`
+  tr.cells[2].innerHTML = `<input type="text" id="isikomentar" size="4" value="${komentar[i].isikomentar}"/>`
+  tr.cells[2].innerHTML = `<input type="text" id="tanggal" size="4" value="${komentar[i].isikomentar}"/>`
+  tr.cells[3].innerHTML = `
+        <a class="btn btn-success" onclick="savekomentar(${i},this)">Save</a>
+        <a class="btn btn-danger" disabled>Delete</a>`
+
+}
+
+function saveartikel(i, elm3) {
+  var tr = elm3.parentElement.parentElement
+  // console.log(document.getElementById('idartikel').value)
+  // console.log(document.getElementById('judul').value)
+  // console.log(document.getElementById('isiartikel').value)
+  // artikel[i]['idartikel'] = document.getElementById('idartikel').value // tambah data ke array
+  // artikel[i]['judul'] = document.getElementById('judul').value
+  // artikel[i]['isiartikel'] = document.getElementById('isiartikel').value
+  // artikel[i]['tanggal'] = document.getElementById('isiartikel').value
+  // tr.cells[0].innerHTML = document.getElementById('idartikel').value // ubah tampilan
+  // tr.cells[1].innerHTML = document.getElementById('judul').value
+  // tr.cells[2].innerHTML = document.getElementById('isiartikel').value
+  // tr.cells[3].innerHTML = document.getElementById('tanggal').value
+
+  // console.log(artikel[i]['id'])
+  // console.log(artikel[i]['judul'])
+  // console.log(artikel[i]['isiartikel'])
+  let arrayKeyArtikel = Object.keys(artikel[i])
+
+  // console.log(tr.cells[1])
+  // console.log(tr.cells[2])
+  for (var x = 0; x < arrayKeyArtikel.length; x++) {
+    // console.log(arrayKeyArtikel[x])
+    let input = document.getElementById(arrayKeyArtikel[x]).value
+    artikel[i][arrayKeyArtikel[x]] = input // merubah data array artikel
+    tr.cells[x].innerHTML = input // merubah tampilan
+  }
+  console.log(artikel[i])
+  // console.log(artikel[i])
+  // console.log(artikel[i]['judul'])
+  // console.log(artikel[i]['isiartikel'])
+  // tr.cells[3].innerHTML = `
+  //       <a class="btn btn-success" onclick="editartikel(${i},this)">Edit</a>
+  //       <a class="btn btn-danger" onclick="delartikel(${i})">Delete</a>`
+  // localStorage.artikel = JSON.stringify(artikel)
+}
+
+function savekomentar(i, elm3) {
+  var tr = elm3.parentElement.parentElement
+  // artikel[i]['jeneng'] = document.getElementById('jeneng').value // tambah data ke array
+  // artikel[i]['jk'] = document.getElementById('jk').value
+  // artikel[i]['hp'] = document.getElementById('hp').value
+
+  // tr.cells[1].innerHTML = document.getElementById('jeneng').value // ubah tampilan
+  // tr.cells[2].innerHTML = document.getElementById('jk').value
+  // tr.cells[3].innerHTML = document.getElementById('hp').value
+  tr.cells[3].innerHTML = `
+        <a class="btn btn-success" onclick="editkomentar(${i},this)">Edit</a>
+        <a class="btn btn-danger" onclick="delkomentar(${i})">Delete</a>`
+
+  for (var x = 0; x < Object.keys(komentar[i]).length; x++) {
+    let key = Object.keys(komentar[i])[x] // Object.keys = mengambil keys dari object disimpan dlm array
+    komentar[i][key] = document.getElementById(key).value
+    tr.cells[x].innerHTML = document.getElementById(key).value
+  }
+localStorage.komentar = JSON.stringify(komentar)
+}
+
+// localStorage.artikel = JSON.stringify(artikel)
+// artikel = JSON.parse(localStorage.artikel)
+// localStorage.removeItem("artikel")
+</script>
+
+</html>

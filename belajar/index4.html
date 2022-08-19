@@ -1,0 +1,128 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Biodata</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid" style="margin-top: 50px;">
+    <div class="col-sm-5">
+      <form method="POST" onsubmit="simpan(this)" class="form-horizontal">
+        <label class="col-xs-3 control-label">Nama: </label>
+        <div class="col-xs-9">
+          <input type="text" name="nama" class="form-control">
+        </div>
+        <label class="col-xs-3 control-label">Gender: </label>
+        <div class="col-xs-9">
+          <select name="jk" class="form-control">
+            <option value="pria">Laki-laki</option>
+            <option value="wanita">Perempuan</option>
+          </select>
+        </div>
+        <label class="col-xs-3 control-label">HP: </label>
+        <div class="col-xs-9">
+          <input type="text" name="hp" class="form-control">
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-7">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>J/K</th>
+            <th>Contact</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tampil">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+<script>
+  let biodata = []
+  list()
+
+  function simpan(data) {
+    event.preventDefault()
+    biodata.push({
+      jeneng: data.nama.value,
+      jk: data.jk.value,
+      hp: data.hp.value
+    })
+    localStorage.biodata = JSON.stringify(biodata)
+    list()
+  }
+
+  function del(x) {
+    biodata.splice(x, 1)
+    localStorage.biodata = JSON.stringify(biodata)
+    list()
+  }
+
+  function list() {
+    biodata = JSON.parse(localStorage.biodata)
+    let text = ''
+    for (let i in biodata) {
+      text +=
+        `
+<tr>
+<td>${i}</td>
+<td>${biodata[i].jeneng}</td>
+<td>${biodata[i].jk}</td>
+<td>${biodata[i].hp}</td>
+<td>
+<a class="btn btn-success" onclick="edit(${i},this)">Edit</a>
+<a class="btn btn-danger" onclick="del(${i})">Delete</a>
+</td>
+</tr>`
+    }
+    document.getElementById('tampil').innerHTML = text
+  }
+
+  function edit(i, elm1) {
+    var tr = elm1.parentElement.parentElement
+    tr.cells[1].innerHTML = `<input type="text" id="jeneng" size="4" value="${biodata[i].jeneng}"/>`
+    tr.cells[2].innerHTML =
+      `
+<select id="jk">  
+<option value="pria" ${ biodata[i].jk=='pria'?'selected':'' }>Laki-laki</option>
+<option value="wanita" ${biodata[i].jk=='wanita'?'selected':''}>Perempuan</option>
+</select>`
+    tr.cells[3].innerHTML = `<input type="text" id="hp" size="4" value="${biodata[i].hp}"/>`
+    tr.cells[4].innerHTML =
+      `
+<a class="btn btn-success" onclick="save(${i},this)">Save</a>
+<a class="btn btn-danger" disabled>Delete</a>`
+  }
+
+  function save(i, elm3) {
+    var tr = elm3.parentElement.parentElement
+    tr.cells[4].innerHTML =
+      `
+<a class="btn btn-success" onclick="edit(${i},this)">Edit</a>
+<a class="btn btn-danger" onclick="del(${i})">Delete</a>`
+
+    for (var x = 0; x < Object.keys(biodata[i]).length; x++) {
+      let key = Object.keys(biodata[i])[x] // Object.keys = mengambil keys dari object disimpan dlm array
+      let col = x + 1
+      biodata[i][key] = document.getElementById(key).value
+      tr.cells[col].innerHTML = document.getElementById(key).value
+    }
+    localStorage.biodata = JSON.stringify(biodata)
+  }
+
+  // localStorage.biodata = JSON.stringify(biodata)
+  // biodata = JSON.parse(localStorage.biodata)
+  // localStorage.removeItem("biodata")
+</script>
+
+</html>
