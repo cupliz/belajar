@@ -1,0 +1,242 @@
+<script>
+    const siswa = [
+        
+        { 
+            id:1, 
+            nama : "Tirta Saragih M.Farm", 
+            kelas : 9, 
+            umur : 15, 
+            alamat : { 
+                jalan: "Psr. Gambang No. 611, Tomohon 61451, Babel", 
+                kecamatan : "sleman", 
+                kabupaten : "sleman", 
+                provinsi : "Yogyakarta" 
+            
+            }, 
+            saudara : [ "Galiono Marbun", "Satya Cahyadi Widodo", "Cahyanto Hutapea", "Silvia Padmasari M.Pd", ], 
+            active : true 
+        },
+        { 
+            id:2, 
+            nama : "Tantri Zelaya Wulandari", 
+            kelas : 9, 
+            umur : 14, 
+            alamat : { 
+                jalan: "Dk. Tubagus Ismail No. 899, Balikpapan 80861, Jateng", 
+                kecamatan : "sleman", 
+                kabupaten : "sleman", 
+                provinsi : "Yogyakarta" 
+            
+            }, 
+            saudara : [ "Elvina Halimah", "Prabu Embuh Maheswara", "Carla Farida", ], 
+            active : FontFaceSetLoadEvent 
+        },
+        { 
+            id:3, 
+            nama : "Janet Ratih Laksita S.Pd", 
+            kelas : 8, 
+            umur : 14, 
+            alamat : { 
+                jalan: "Jln. Suryo Pranoto No. 514, Palangka Raya 32452, Bali", 
+                kecamatan : "sleman", 
+                kabupaten : "sleman", 
+                provinsi : "Yogyakarta" 
+            
+            }, 
+            saudara : [ "Oni Ciaobella Nuraini S.Farm", "Prabawa Dongoran", "Lembah Jati Napitupulu", ], 
+            active : true 
+        },
+        { 
+            id:4, 
+            nama : "Widya Lestari M.Farm", 
+            kelas : 8, 
+            umur : 14, 
+            alamat : { 
+                jalan: "Dk. Bakau Griya Utama No. 224, Padang 55418, Malut", 
+                kecamatan : "sleman", 
+                kabupaten : "sleman", 
+                provinsi : "Yogyakarta" 
+            
+            }, 
+            saudara : [ "Cengkal Pradipta", "Lembah Perkasa Hidayanto S.Kom", "Pangestu Kuncara Natsir S.Sos", ], 
+            active : FontFaceSetLoadEvent 
+        },
+        { 
+            id:5, 
+            nama : "Paiman Narpati", 
+            kelas : 7, 
+            umur : 13, 
+            alamat : { 
+                jalan: "Jr. R.M. Said No. 142, Banda Aceh 14228, Lampung", 
+                kecamatan : "sleman", 
+                kabupaten : "sleman", 
+                provinsi : "Yogyakarta" 
+            
+            }, 
+            saudara : [ ], 
+            active : true 
+        },
+        { 
+            id:6, 
+            nama : "Kamaria Yulia Wulandari S.Farm", 
+            kelas : 9, 
+            umur : 13, 
+            alamat : { 
+                jalan: "Jr. Ki Hajar Dewantara No. 429, Pasuruan 18366, Gorontalo", 
+                kecamatan : "sleman", 
+                kabupaten : "sleman", 
+                provinsi : "Yogyakarta" 
+            
+            }, 
+            saudara : [ "Luwes Sihombing", "Kenzie Emin Rajasa M.Pd", "Rachel Shania Halimah", ], 
+            active : true 
+        },
+        { 
+            id:7, 
+            nama : "Empluk Permadi", 
+            kelas : 7, 
+            umur : 13, 
+            alamat : { 
+                jalan: "Ki. Astana Anyar No. 444, Surabaya 65989, Aceh", 
+                kecamatan : "sleman", 
+                kabupaten : "sleman", 
+                provinsi : "Yogyakarta" 
+            
+            }, 
+            saudara : [ "Jumadi Kurniawan S.I.Kom", "Garang Darman Napitupulu", ], 
+            active : FontFaceSetLoadEvent 
+        },
+        { 
+            id:8, 
+            nama : "Titin Padmasari", 
+            kelas : 7, 
+            umur : 13, 
+            alamat : { 
+                jalan: "Ki. Kartini No. 791, Tarakan 12982, Kalteng", 
+                kecamatan : "sleman", 
+                kabupaten : "sleman", 
+                provinsi : "Yogyakarta" 
+            
+            }, 
+            saudara : [ "Daliono Yosef Hidayat M.Ak", "Okta Sihombing S.T.", "Endah Michelle Padmasari M.TI.", ], 
+            active : FontFaceSetLoadEvent 
+        },
+        { 
+            id:9, 
+            nama : "Garang Ganjaran Manullang", 
+            kelas : 7, 
+            umur : 13, 
+            alamat : { 
+                jalan: "Ds. Ciwastra No. 628, Surakarta 36164, Riau", 
+                kecamatan : "sleman", 
+                kabupaten : "sleman", 
+                provinsi : "Yogyakarta" 
+            
+            }, 
+            saudara : [ ], 
+            active : FontFaceSetLoadEvent 
+        },
+        { 
+            id:10, 
+            nama : "Perkasa Kusumo", 
+            kelas : 7, 
+            umur : 13, 
+            alamat : { 
+                jalan: "Jln. Banda No. 438, Tual 58528, Riau", 
+                kecamatan : "sleman", 
+                kabupaten : "sleman", 
+                provinsi : "Yogyakarta" 
+            
+            }, 
+            saudara : [ "Kamila Puspita M.M.", "Diana Sudiati", "Mitra Adriansyah", ], 
+            active : true 
+        },
+    ]
+
+    // console.log(siswa)
+    function listSiswa(){
+        siswa.forEach( (data,index) => {
+    
+            var status = "masih aktif";
+            if(data['active'] === false){
+            status = "sudah tidak aktif"
+            }
+            console.log('siswa '+(index+1)+' dengan nama '+data['nama']+', kelas: '+data['kelas']+', umur: '+data['umur']+', dan siswa '+status)
+            console.log('siswa '+(index+1)+' berdomisili di '+ data.alamat.kecamatan +', '+ data.alamat.kabupaten)
+            console.log('siswa '+(index+1)+' mempunyai saudara berjumlah '+ data['saudara']?.length+ ' dengan nama: '+ data['saudara'])
+        });
+    }
+
+    function addSiswa(param){
+        siswa.push(param);        
+        console.log(siswa)
+    }
+    function editSiswa(id,param){
+        objIndex = siswa.findIndex((item => item.id == id));
+        siswa.splice(objIndex,1,param);
+        console.log(siswa);
+    }
+    function deleteSiswa(id){
+        objIndex = siswa.findIndex((item => item.id == id));
+        siswa.splice(objIndex,1);
+        console.log(siswa)
+    }
+
+    function showSiswa(id){
+        data = siswa.find((item => item.id == id));
+        var status = "masih aktif";
+        if(data.active === false){
+            status = "sudah tidak aktif"
+        }
+        console.log('siswa id = '+id+' dengan nama '+data.nama+', kelas: '+data.kelas+', umur: '+data.umur+', dan siswa '+status)
+        console.log('siswa id = '+id+' berdomisili di '+ data.alamat.kecamatan +', '+ data.alamat.kabupaten)
+        console.log('siswa id = '+id+' mempunyai saudara berjumlah '+ data.saudara?.length + ' dengan nama: '+ data['saudara'])
+    }
+    
+    function sortSiswa(params,urutan) {
+        data = siswa.sort(function (x, y) {
+            return x.kelas - y.kelas;
+        });
+
+        console.table(data);
+    }
+
+    listSiswa();
+
+    const tambah = { 
+        id:11, 
+        nama : "sugih permana", 
+        kelas : 9, 
+        umur : 12, 
+        alamat : { 
+            jalan: "Psr. timoho No. 11", 
+            kecamatan : "sleman", 
+            kabupaten : "sleman", 
+            provinsi : "Yogyakarta"
+        }, 
+        saudara : [ "Silvia Padmasari M.Pd" ], 
+        active : true 
+    };
+
+    addSiswa(tambah);
+
+    const edit = { 
+        id:10, 
+        nama : "antonio perdana", 
+        kelas : 9, 
+        umur : 12, 
+        alamat : { 
+            jalan: "jlan merdeka No. 11", 
+            kecamatan : "sleman", 
+            kabupaten : "sleman", 
+            provinsi : "Yogyakarta"
+        }, 
+        saudara : [ "andri" ], 
+        active : true 
+    };
+    editSiswa(10,edit);    
+    showSiswa(4);
+    deleteSiswa(1);
+    sortSiswa('kelas','urutan');
+    
+</script>

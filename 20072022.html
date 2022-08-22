@@ -13,9 +13,9 @@
         kabupaten : "sleman",
         provinsi : "Yogyakarta"
       },
-      saudara : [
-        "indah", "jaya"
-      ],
+      // saudara : [
+      //   "indah", "jaya"
+      // ],
       active : true
     },
     {
@@ -62,21 +62,6 @@
       active : false
     },
     {
-      nama : "sugi mahadewa",
-      kelas : 3,
-      umur : 10,
-      alamat : {
-        jalan: "jalan persatuan no 3",
-        kecamatan : "sleman",
-        kabupaten : "sleman",
-        provinsi : "Yogyakarta"
-      },
-      saudara : [
-        "purwoto", "ronaldo","nurgianto"
-      ],
-      active : true
-    },
-    {
       nama : "naruto ",
       kelas : 3,
       umur : 10,
@@ -90,6 +75,21 @@
         "sasuke", "hinata","sakura"
       ],
       active : false
+    },
+    {
+      nama : "sugi mahadewa",
+      kelas : 3,
+      umur : 10,
+      alamat : {
+        jalan: "jalan persatuan no 3",
+        kecamatan : "sleman",
+        kabupaten : "sleman",
+        provinsi : "Yogyakarta"
+      },
+      saudara : [
+        "purwoto", "ronaldo","nurgianto"
+      ],
+      active : true
     },
     {
       nama : "luffy ",
@@ -107,6 +107,21 @@
       active : false
     },
     {
+      alamat : {
+        jalan: "jalan dosu no 10",
+        kecamatan : "ngemplak",
+        kabupaten : "sleman",
+        provinsi : "Yogyakarta"
+      },
+      kelas : 3,
+      nama : "Otogakure",
+      umur : 8,
+      saudara : [
+        "zabuza","haku"
+      ],
+      active : true
+    },
+    {
       nama : "Agung Budi",
       kelas : 3,
       umur : 9,
@@ -118,21 +133,6 @@
       },
       saudara : [
         "sudarmanto"
-      ],
-      active : true
-    },
-    {
-      nama : "Otogakure",
-      kelas : 3,
-      umur : 8,
-      alamat : {
-        jalan: "jalan dosu no 10",
-        kecamatan : "ngemplak",
-        kabupaten : "sleman",
-        provinsi : "Yogyakarta"
-      },
-      saudara : [
-        "zabuza","haku"
       ],
       active : true
     },
@@ -154,7 +154,13 @@
 
   ]
   // jika true maka "masih aktif", jika false "sudah tidak aktif"
-  
+  // for of 
+  // for 
+
+  for (let i = 0; i < siswa.length; i++) {
+    const element = siswa[i];
+    
+  }
   // pengulangan menggunakan for
   console.log("pengulangan menggunakan for of")
   for([index,data] of siswa.entries()){
@@ -166,23 +172,28 @@
 
     console.log('siswa '+(index+1)+' berdomisili di '+ data.alamat.kecamatan +', '+ data.alamat.kabupaten)
     
-    console.log('siswa '+(index+1)+' mempunyai saudara berjumlah '+ data['saudara'].length+ ' dengan nama: '+ data['saudara'])
+    // console.log('siswa '+(index+1)+' mempunyai saudara berjumlah '+ data['saudara'].length+ ' dengan nama: '+ data['saudara'])
   }
 
   // pengulangan menggunakan for In
-  // console.log("pengulangan menggunakan for in")
-  // for(index in siswa){
-  //   console.log(data);
-  //   var status = "masih aktif";
-  //   if(data['active'] === false){
-  //     status = "sudah tidak aktif"
-  //   }
-  //   console.log('siswa  dengan nama '+data['nama']+', kelas: '+data['kelas']+', umur: '+data['umur']+', dan siswa '+status)
+  console.log("pengulangan menggunakan for in")
+  for(data in siswa[0]){
 
-  //   console.log('siswa  berdomisili di '+ data.alamat.kecamatan +', '+ data.alamat.kabupaten)
+    console.log(data);
+    // let sis = siswa[data]
+    // console.log(sis);
+
     
-  //   console.log('siswa  mempunyai saudara berjumlah '+ data['saudara'].length+ ' dengan nama: '+ data['saudara'])
-  // }
+    // var status = "masih aktif";
+    // if(data['active'] === false){
+    //   status = "sudah tidak aktif"
+    // }
+    // console.log('siswa  dengan nama '+data['nama']+', kelas: '+data['kelas']+', umur: '+data['umur']+', dan siswa '+status)
+
+    // console.log('siswa  berdomisili di '+ data.alamat.kecamatan +', '+ data.alamat.kabupaten)
+    
+    // console.log('siswa  mempunyai saudara berjumlah '+ data['saudara'].length+ ' dengan nama: '+ data['saudara'])
+  }
   
   
   // pengulangan menggunakan foreach 
@@ -195,23 +206,88 @@
     }
     console.log('siswa '+(index+1)+' dengan nama '+data['nama']+', kelas: '+data['kelas']+', umur: '+data['umur']+', dan siswa '+status)
     console.log('siswa '+(index+1)+' berdomisili di '+ data.alamat.kecamatan +', '+ data.alamat.kabupaten)
-    console.log('siswa '+(index+1)+' mempunyai saudara berjumlah '+ data['saudara'].length+ ' dengan nama: '+ data['saudara'])
+    console.log('siswa '+(index+1)+' mempunyai saudara berjumlah '+ data['saudara']?.length+ ' dengan nama: '+ data['saudara'])
   });
 
   // pengulangan menggunakan map
   console.log("pengulangan menggunakan map")
-  siswa.map((data,index) => {
+
+  const siswa_baru = siswa.map((data,index) => {
     var status = "masih aktif";
     if(data['active'] === false){
       status = "sudah tidak aktif"
     }
     console.log('siswa '+(index+1)+' dengan nama '+data['nama']+', kelas: '+data['kelas']+', umur: '+data['umur']+', dan siswa '+status)
     console.log('siswa '+(index+1)+' berdomisili di '+ data.alamat.kecamatan +', '+ data.alamat.kabupaten)
-    console.log('siswa '+(index+1)+' mempunyai saudara berjumlah '+ data['saudara'].length+ ' dengan nama: '+ data['saudara'])
+    console.log('siswa '+(index+1)+' mempunyai saudara berjumlah '+ data['saudara']?.length + ' dengan nama: '+ data['saudara'])
   });
 
-  
-  
+  const array1 = [1, 2, 3, 4];
+
+// 0 + 1 + 2 + 3 + 4
+const initialValue = 0;
+const sumWithInitial = siswa.reduce(
+  (previousValue, currentValue) => {
+    previousValue.push(currentValue.nama)
+    return previousValue
+  },
+  []
+);
+
+let sumWithInitial2 = 0
+for (const ar in array1) {
+  const previousValue = sumWithInitial2
+  sumWithInitial2 = previousValue+ array1[ar]  
+  console.log(ar, sumWithInitial2)
+}
+
+
+
+
+console.log(sumWithInitial, sumWithInitial2);
+const getNama = siswa.map(x=>{
+  return x.umur
+})
+const getUmur = siswa.filter(x=>{
+  return x.umur<9
+})
+const reduceUmur = siswa.reduce((data, x, i)=>{
+  if(x.umur<9){
+    data.push(i)
+  }
+  return data
+},[])
+
+const newData = []
+for(let [i,x] of siswa.entries()) {
+  if(x.umur<9){
+    newData.push(i)
+  }
+}
+console.log(getNama)
+console.log(getUmur)
+console.log(reduceUmur)
+console.log(newData)
+// expected output: 10
+
+//  deconstructor
+const [s4,siswa1,s2,s3] = siswa
+const {nama, kelas, alamat, saudara, active} = s3
+const {kabupaten, jalan, kecamatan} =  alamat
+
+// console.log(Object.keys(alm) , jalan, kabupaten, kecamatan) 
+console.log(saudara?.length && 'banyak saudara')
+console.log(saudara?.length || 'banyak saudara')
+console.log(saudara, saudara?.length)
+console.log(Object.keys(s3).length)
+
+const cekUmur = (lahir)=>{
+  return {
+    umur: 2022-lahir, lahir
+  }
+}
+const {umur} = cekUmur(1998) 
+console.log(umur)
  
 
   // mendeklarasikan fungsi dengan cara biasa
@@ -258,4 +334,11 @@
   //   }
   // }
   // FungsiBuah(buah)
+  const mobil = ['toyota', 'honda', 'suzuki', 'bmw', 'ferrari']
+  mobil.push('tesla')
+  mobil.splice(1,0,'audy') // add
+  mobil.splice(3,1,'roll royce') //edit
+  mobil.splice(1,1) // hapus
+  mobil.pop()
+  console.log(mobil)
 </script>
