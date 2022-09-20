@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<script>
+
+    const say = function(name){
+        document.writeln(`<p>Hello ${name}</p>`)
+    }
+
+    say("Cat")
+
+    function giveMeName(callback){
+        callback("Meow")
+    }
+
+    giveMeName(say)
+
+    giveMeName(function(name){
+        document.writeln(`<p>Hi ${name}</p>`)
+    })
+</script>

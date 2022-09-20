@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<script>
+
+    //or ||
+    //left to right
+    //first truthy
+
+    console.info("Hello" || "") // Hello
+    console.info("" || [])
+    console.info("0" || "NOL")
+    console.info(0 || "NOL") //NOL
+    console.info(null || "NULL") //NULL
+    console.info(undefined || "UNDEFINED") //UNDEFINED
+
+    const person = {
+        firstName: "Cat",
+        lastName: "Meow"
+    }
+
+    const name = person.firstName || person.lastName
+    console.info(name)
+
+    //and &&
+    //right to left
+    //first falsy
+
+    console.info("Hello" && "")
+    console.info("" && [])
+    console.info("0" && "NOL")
+    console.info(0 && "NOL") //0
+    console.info(null && "NULL") //null
+    console.info(undefined && "UNDEFINED") //undefined
+
+</script>

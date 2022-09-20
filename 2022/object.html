@@ -1,0 +1,34 @@
+<script>
+  // 7C7W+623, Sambiroto, Purwomartani, Kec. Kalasan, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55571, Indonesia
+  const alamat = {
+    jalan: 'sambiroto',
+    desa: 'purwomartani'
+  }
+  const data2 = {
+    kabupaten: 'kulon progo',
+    provinsi: 'yogyakarta',
+    kodepos: 55571
+  }
+  const asdfg = 'aisudhausjyd'
+  const key = 'tempat'
+  const value = 'Sate kambing mbah giran'
+  alamat['kecamatan'] = 'kalasan'
+  alamat[key] = value //haidar
+  // alamat['tempat'] = value
+  alamat.kabupaten = 'sleman'
+  alamat.provinsi = data2.provinsi
+  // const tempat = { key, value }
+  const newAlamat = Object.assign(alamat, data2)
+  console.log(newAlamat)
+  delete newAlamat.provinsi
+
+  const motor = {
+    merk: 'honda'
+  }
+  const poi = 'tipe'
+  const lkj = 'scoopy'
+  motor[poi] = lkj
+  motor.merk = 'suzuki'
+  delete motor[poi]
+  console.log(motor) // {merk: 'honda', tipe: 'scoopy'}
+</script>

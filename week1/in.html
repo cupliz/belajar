@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<script>
+
+    const person = {
+        firstName: "Cat",
+        lastName: "Meow"
+    }
+
+    if (`"firstName" in person`) {
+        alert(`Hello ${person.firstName}`)
+    }else {
+        alert("Hello")
+    }
+
+    //undefined
+    const student = {
+        firstName: "Cat",
+        middleName: undefined,
+        lastName: "Meow"
+    }
+
+    if ("middleName" in student) {
+        alert(`Hello ${student.middleName}`)
+    } else {
+        alert("Hello Student")
+    }
+
+    //null
+    const names = [null, "Cat", null]
+    const result = 0 in names
+    document.writeln(`<p>${result}</p>`)
+
+</script>

@@ -1,0 +1,14 @@
+<script>
+  const motor = ['honda', 'suzuki', 'kawasaki', 'yamaha', 1]
+  const newData = 'vespa'
+  function tambahMotor(data1) {
+    motor.push(data1)
+  }
+  const hapusMotor = (param1) => {
+    const index = motor.findIndex((x) => x == param1)
+    motor.splice(index, 1)
+  }
+  tambahMotor(newData)
+  hapusMotor('1')
+  console.log(motor)
+</script>

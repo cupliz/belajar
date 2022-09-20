@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<script>
+
+    //getter
+    const person = {
+        firstName: "Cat",
+        lastName: "Cat Meow",
+        get fullName(){
+            return `${this.firstName} ${this.lastName}`
+        },
+        //setter
+        set fullName(value){
+            const array = value.split(" ")
+            this.firstName = array[0]
+            this.lastName = array[1]
+        }
+    }
+
+    //setter
+    person.fullName = "Cat Cat Meow"
+    console.info(person.firstName)
+    console.info(person.lastName)
+    
+
+    //getter
+    console.info(person.fullName)
+
+    person.firstName = "Cat Meow"
+    console.info(person.fullName)
+
+    
+
+
+</script>

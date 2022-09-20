@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<script>
+
+    //we talk about scope here
+    //fangshen = local
+    //outside function = global
+    let counter = 0
+
+    function what(){
+        counter ++
+    }
+
+    function other(){
+        //each finction is a different local scope
+        //this a example
+    }
+
+    what()
+    what()
+
+    console.info(counter)
+
+    function first(){
+        let firstVariable = "First"
+
+        function firstNested(){
+            console.info(firstVariable)
+        }
+    }
+
+    function second(){
+        let secondVariable = "Second"
+    }
+
+    first()
+    second()
+
+    //error bcz searching local on global
+    connsole.info(firstVariable)
+    console.info(secondVariable)
+
+
+
+</script>

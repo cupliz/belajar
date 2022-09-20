@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<script>
+
+    let array = []
+
+    let arrayGreetings = ["meow", "maurr", true, 100, ["test"]]
+
+    // index starts from 0
+    // array count starts from 1
+
+    const greetings = []
+    greetings.push("maau")
+    greetings.push(":silence:", ":rubs head:", ":stare")
+
+    console.table(greetings)
+
+    console.info(greetings[0])
+    console.info(greetings[1])
+    console.info(greetings[2])
+
+    greetings[0] = ":sat still:"
+
+    console.table(greetings)
+
+    greetings.push(":silence:")
+
+    console.table(greetings)
+
+    greetings[3] = "what"
+    greetings.push(1,2,3,4,5)
+    greetings.push(["more", "array", "entry"])
+
+    //1. menambahkan data di depan tengah dan belakang
+    /* depan arrayName.unshift(newValue, ...)
+       tengah arrayName.splice(index, 0, newValue, ...)
+       belakang arrayName.push(newValue, ...)
+    
+    //2. update data di depan tengah belakang
+    /* arrayName[index] = newValue */
+    
+    //3. delete data di depan tengah belakang
+    /* depan arrayName.shift()
+       arrayName.splice(index, sampai berapa ke kanan[start from 1 for self])
+       arrayName.splice(index)
+       belakang arrayName.pop() */
+    
+    //4. empty
+    /* delete arrayName[]*/
+
+    const nama1 = "Haidar"
+    const nama2 = {nama: nama1, alamat: "Timoho"}
+    const nama3 = ["A", "B", "C", [1, 2, 3]]
+    const siswa = [nama2, "Andi", nama1, nama3, "Helmi", {nama: "Toni"}]
+    //siswa.splice(2, 0, "Toni")
+    //siswa.splice(1, 1, "Agus")
+    //siswa.splice(0, 1)
+    //nama2 = {umur: 20}
+    //nama2["umur"] = 20
+
+    nama2.alamat = 20
+    //siswa[3].splice(1, 1)
+    siswa[3][3].splice(3, 0, 4)
+    siswa[3][3].push(5)
+
+    console.log(siswa[3])
+
+</script>

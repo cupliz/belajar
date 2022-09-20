@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<script>
+
+    function sayHello(name){
+        document.writeln(`<p>Hello ${name}</p>`)
+    }
+
+     sayHello("Cat")
+
+     const say = sayHello
+
+     say("Meow")
+
+     function giveMeName(callback){
+        callback("Cat")
+     }
+
+     giveMeName(sayHello)
+     giveMeName(say)
+     
+</script>

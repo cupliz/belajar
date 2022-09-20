@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<script>
+
+    function factotrial(value){
+        let result = 1
+        for (i = 1; 1 <= value; i++){
+            result += 1
+        }
+        return result
+    }
+
+    console.info(factotrial(7))
+
+    function factorialRecursive(value){
+        if(value === 1){
+            return 1
+        }else{
+            return value * factorialRecursive(value - 1)
+        }
+    }
+
+    console.info(factorialRecursive(10))
+    //5 * factorialRecursive(4)
+    //5 * 4 * factorialRecursive(3)
+    //5 * 4 * 3 * factorialRecursive(2)
+    //5 * 4 * 3 * 2 * factorialRecursive(1)
+    //5 * 4 * 3 * 2 * 1
+    
+</script>

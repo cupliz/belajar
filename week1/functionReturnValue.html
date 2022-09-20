@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<script>
+    
+    function sayHello(firstName, lastName){
+        document.writeln(`<p>Hello ${firstName} ${lastName}</p>`) 
+        return say = `Hello ${firstName} ${lastName}`
+    }
+
+    const hello = sayHello(firstName, lastName)
+    document.writeln(`<p>${hello}</p>`)
+
+    //new function completely unrelated
+
+    function getFinalValue(value){
+        if(value > 90){
+            return "A"
+        }else if(value > 80){
+            return "B"
+        }else{
+            return "C"
+        }
+    }
+
+    const finalValue = getFinalValue(75)
+    document.writeln(`<p>${finalValue}</p>`)
+
+    //fangfeng fangsheng
+
+    function isContains(array, searchValue){
+        for(const element of array){
+            if(element === searchValue){
+                return true
+            }
+        }
+        return false
+    }
+
+    const array = [1, 12, 123, 1234, 12345]
+    const search = 123
+    const found = isContains(array. search)
+    document.writeln(`<p>${found}</p>`)
+    
+</script>

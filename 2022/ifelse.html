@@ -1,0 +1,41 @@
+<script>
+  // && AND --- jika 2-2 benar maka benar, jika salah satu salah maka salah
+  // || OR  ---  jika salah satu benar maka benar, jika 2-2 salah maka salah
+  const a = 1
+  const b = '2'
+
+  // if (a >= b && a === b) {
+  //   console.log('salah')
+  // } else {
+  //   console.log('benar')
+  // }
+
+  if ((b > a && a < b && (a > b || a < b)) || !(a > b)) {
+    console.log('a')
+    if (a > b) {
+      console.log(1)
+    } else {
+      console.log(3)
+    }
+  } else {
+    console.log('b')
+    if (a < b) {
+      console.log(2)
+    } else {
+      console.log(4)
+    }
+  }
+
+  const data = a > b ? 1 : 2
+  // let data = 0
+  // if (a > b) {
+  //   data = 1
+  // } else {
+  //   data = 2
+  // }
+  console.log(data)
+
+  const merk = ['gucci', 'c&k']
+  // gucci
+  // c&k
+</script>

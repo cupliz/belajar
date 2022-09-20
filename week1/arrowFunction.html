@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<script>
+
+    /*normal function*/
+    //const sayHello = (name) => {
+    //    const say = `Hello ${name}`
+    //    console.info(say)
+    //}
+
+    //arrow w/ parameter
+    //const sayHello = (name) => console.info(`Hello ${name}`)
+
+    //arrow w/o parameter
+    const sayHello = name => console.info(`Hello ${name}`)
+
+    //return arrow
+    const sum = (first,second) => first + second
+
+    console.info(sum(100, 100))
+
+    //new function
+    function giveMeName(callback){
+        callback("Eko")
+    }
+
+    //parameter arrow
+    giveMeName(name => console.info(`Hello ${name}`))
+
+
+</script>
