@@ -1,0 +1,140 @@
+<script>
+  const siswa = [
+    {
+      nama: "ridwan",
+      kelas: 6,
+      umur: 17,
+      alamat: {
+        jalan: "bunga mawar",
+        kecamatan: "klaten",
+        kabupaten: "sukohardjo",
+        provinsi: "jawa tengah",
+      },
+      namasaudara: ["zain", "luthfi", "asyafah"],
+    },
+    {
+      nama: "ahmad",
+      kelas: 10,
+      umur: 20,
+      alamat: {
+        jalan: "mawar indah",
+        kecamatan: "boyolali",
+        kabupaten: "surakarta",
+        provinsi: "jawa tengah",
+      },
+      namasaudara: ["sultan", "farizi", "rudi"],
+    },
+    {
+      nama: "salman",
+      kelas: 8,
+      umur: 19,
+      alamat: {
+        jalan: "sinar kasih",
+        kecamatan: "cimacan",
+        kabupaten: "bogor",
+        provinsi: "jawa barat",
+      },
+      namasaudara: ["rozaq", "abin", "tsabit"],
+    },
+    {
+      nama: "faris",
+      kelas: 4,
+      umur: 15,
+      alamat: {
+        jalan: "gajah mada",
+        kecamatan: "wonosari",
+        kabupaten: "gatak",
+        provinsi: "jawa tengah",
+      },
+      namasaudara: ["izzad", "saidi", "burhan"],
+    },
+    {
+      nama: "fauzan",
+      kelas: 12,
+      umur: 21,
+      alamat: {
+        jalan: "bayan krajan",
+        kecamatan: "plumpang",
+        kabupaten: "surabaya",
+        provinsi: "jawa timur",
+      },
+      namasaudara: ["amar", "yasin", "yusuf"],
+    },
+    {
+      nama: "habeb",
+      kelas: 5,
+      umur: 16,
+      alamat: {
+        jalan: "mekar sari",
+        kecamatan: "karanganyar",
+        kabupaten: "sukohardjo",
+        provinsi: "jawa tengah",
+      },
+      namasaudara: ["syakur", "sabil", "ammar"],
+    },
+    {
+      nama: "hakim",
+      kelas: 6,
+      umur: 17,
+      alamat: {
+        jalan: "nusa indah",
+        kecamatan: "gebang",
+        kabupaten: "surakarta",
+        provinsi: "jawa tengah",
+      },
+      namasaudara: ["oman", "sujud", "ehsan"],
+    },
+    {
+      nama: "jatsi",
+      kelas: 9,
+      umur: 20,
+      alamat: {
+        jalan: "nusa kambangan",
+        kecamatan: "puncak",
+        kabupaten: "bogor",
+        provinsi: "jawa barat",
+      },
+      namasaudara: ["kipli", "dafa", "ridho"],
+    },
+    {
+      nama: "rozzaq",
+      kelas: 7,
+      umur: 18,
+      alamat: {
+        jalan: "pilang sari",
+        kecamatan: "pilang bangu",
+        kabupaten: "sragen",
+        provinsi: "jawa tengah",
+      },
+      namasaudara: ["jaka", "jaki", "iyus"],
+    },
+    {
+      nama: "afrizal",
+      kelas: 13,
+      umur: 22,
+      alamat: {
+        jalan: "budi utomo",
+        kecamatan: "batu",
+        kabupaten: "lampung",
+        provinsi: "ntt",
+      },
+      namasaudara: ["azmi", "labib", "aas"],
+    },
+  ];
+
+ 
+  for (const [index, sis] of siswa.entries()) {
+  console.log(index +1, sis);
+  console.log(
+      `siswa ${sis.nama}, kelas: ${sis.kelas}, umur: ${sis.umur}, dan siswa masih aktif`
+    );
+    console.log(
+      `siswa ${sis.nama} berdomisili di ${sis.alamat.jalan}, ${sis.alamat.kecamatan}, ${sis.alamat.kabupaten}, ${sis.alamat.provinsi}`
+    );
+    console.log(
+      `siswa ${sis.nama} mempunyai saudara berjumlah 3 dengan nama: ${sis.namasaudara}`
+    );
+    
+}
+  
+</script>

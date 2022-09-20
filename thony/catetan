@@ -1,0 +1,26 @@
+integer adlh: angka
+float adlh: angka dan koma (1.3)
+string adlh: ("")
+
+array adlah diawali dengn kurung kotak ( [] )
+yg didlmnya ada index dan value                                                                                                  INGAT, INGAT, DAN INGAT !!!
+index adlh berupa angka
+dan value adlh bebas(apa saja bisa)                                                                       
+objeck adlh diawali dngn kurung kurawa ( {} )                             
+yg didlmnya ada key dan value                                            
+key adlh berupa apa saja juga bisa                                        
+dan value adlh bebas(apa saja bisa)                                       
+cara pengaksesan atau pemanggilan:                                        
+
+1.cara mengakses array adlh dngn kurung kotak []
+contoh:  (siswa[...])
+2.cara mengakses objeck dgn dot(.)
+contoh:  (detail.key) 
+
+for of adalah pengulangan dr sebuah data utk nmengetahui 
+bener atau salahnya data tsb
+
+
+
+
+
