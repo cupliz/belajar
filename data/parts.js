@@ -1,4 +1,4 @@
-[
+const parts = [
   {
     "id": 339583,
     "description": "Micro Alloy Wheel Repair Kit",
