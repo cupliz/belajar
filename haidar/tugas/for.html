@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<script src="../../data/report.js">
+</script>
+
+<script>
+
+const array = report.transactions
+const show = []
+
+    for (let index = 0; index < array.length; index++) {
+        const element = array[index];
+        const data = {
+            id: element.buildingUnit?.id || '',
+            nama: element.buildingUnit?.unitName || '',
+            tipe: element.buildingUnit?.unitType || '',
+            harga: element.amount,
+            dibayar: element.collected,
+            lunas: element.collected >= element.amount,
+            penyewa: element.buildingUnit?.leasings.tenantName || '',
+        }
+        show.push(data)
+    }
+
+    console.table(show)
+
+    console.log(!(0))
+
+</script>
