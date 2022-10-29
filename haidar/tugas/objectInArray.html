@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<script>
+let cast = [
+    {
+        id: 1,
+        name: "Edward Elric",
+        dob: 1899,
+        pob: "Resembool, East State, Amestris",
+        aliases: {
+            alias1: "Fullmetal Alchemist",
+            alias2: "Little Red Runt",
+            alias3: "Hero of the People",
+        },
+        relatives: ["Van Hohenheim", "Trisha Elric", "Alphonse Elric"],
+        status: true
+    },
+    {
+        id: 2,
+        name: "Alphonse Elric",
+        dob: 1900,
+        pob: "Resembool, East State, Amestris",
+        aliases: {
+            alias1: "Al",
+            alias2: "Armored Alchemist",
+            alias3: "Armor boy",
+        },
+        relatives: ["Van Hohenheim", "Trisha Elric", "Alphonse Elric"],
+        status: true,
+    },
+]
+
+//console.log(cast)
+for (let index = 0; index < cast.length; index++) {
+    console.log(cast[index], "looping cast")
+}
+
+//new cast
+let roy = {
+    id: 3,
+    name: "Roy Mustang",
+    dob: 1885,
+    pob: "Central City, Amestris",
+    aliases: {
+        alias1: "Flame Alchemist",
+        alias2: "Hero of Ishval",
+        alias3: "Roy-Boy",
+    },
+    relatives: ["Chris Mustang", "Roy's parents"],
+    status: true
+}
+
+//adding the new cast to the array
+const addRoy = () => {
+    let newCast = cast.push(roy)
+
+    console.log(cast, "Roy added to the cast.")
+}
+addRoy()
+
+//??
+var id
+var castIndex = cast.map((x) => {
+    return x.id
+}).indexOf(id)
+
+</script>
