@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    // semua tipe data pasti ada operasi (create, read, update, delete) CRUD
+    let nomor = 1
+    let zxc = 'rubah'
+    nomor = 2
+    // console.log(nomor)
+    let umur = parseInt('18') // concatenation
+    // umur = undefined null ''
+    // console.log(nomor + umur)
+
+    // array
+    // (index) dimulai dengan 0,  (value)
+    const testArray = ['apple', 'mango', 'banana'] // camel case
+    // console.log(testArray[1] + ' dan ' + testArray[2])
+    // console.log(`${testArray[1]} dan ${testArray[2]}`)
+
+    const arr2 = [12, 29, 48, 17, 52, 88, 81, 76, 14] //create
+    console.log(arr2[2] + arr2[3]) // read
+    arr2[0] = 87
+    arr2.splice(0, arr2.length)
+    // console.log(arr2, arr2.length)
+
+    // object
+    // (key) (value)
+    const var2 = 'umur'
+    const var3 = [{ test: 'nama' }, { test: 'umur' }]
+    let obj_1 = {
+      nama: 'jono',
+      kelas: '4A',
+      umur: 12
+    } // snake case
+    // console.log(asd[0], asd[1])
+    console.log(obj_1.nama, obj_1.var2, obj_1[var3[1].test])
+    console.log(obj_1[var3[0].test])
+    const var1 = 'joko'
+    const var4 = 'nama'
+    const obj2 = {
+      [var4]: var1
+    }
+    console.log(obj2)
+    // 
+  </script>
+</html>

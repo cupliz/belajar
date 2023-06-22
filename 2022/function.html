@@ -1,72 +1,83 @@
 <script>
-  const siswa = ['andi', 'budi', 'toni']
-  // pendeklarasian fungsi
-  function fungsi1(data, data1) {
-    console.log('tampil fungsi 1')
-    siswa.push(data)
-    console.log(data)
-    console.log(`${data} kelas 10`)
-    // siswa.push(`siswa ${data}`)
-  }
-  // arrow function/fungsi
-  const fungsi2 = (data, data1 = 1) => {
-    // default value
-    console.log('tampil fungsi 2', data)
-    console.log(`jumlah:`, parseInt(data1) + 2)
-  }
-  const uaygsdasd = fungsi2
-  fungsi1('toni', 212) // pemanggilan
-  uaygsdasd('Toni', '10')
+  // const siswa = ['andi', 'budi', 'toni']
+  // // pendeklarasian fungsi
+  // function fungsi1(data, data1) {
+  //   console.log('tampil fungsi 1')
+  //   siswa.push(data)
+  //   console.log(data)
+  //   console.log(`${data} kelas 10`)
+  //   // siswa.push(`siswa ${data}`)
+  // }
+  // // arrow function/fungsi
+  // const fungsi2 = (data, data1 = 1) => {
+  //   // default value
+  //   console.log('tampil fungsi 2', data)
+  //   console.log(`jumlah:`, parseInt(data1) + 2)
+  // }
+  // const uaygsdasd = fungsi2
+  // fungsi1('toni', 212) // pemanggilan
+  // uaygsdasd('Toni', '10')
 
-  const biodata = ['Budi', 'Mia', 'Andi']
-  const fungsi3 = (asd) => {
-    // menambahkan data
-    biodata.push(asd)
-  }
-  function fungsi4() {
-    // mengurutkan biodata berdasarkan nama
-    biodata.sort()
-  }
-  const fungsi5 = (qwe, urut) => {
-    fungsi3(qwe)
-    urut()
-  }
-  fungsi5('Agus', fungsi4)
+  // const biodata = ['Budi', 'Mia', 'Andi']
+  // const fungsi3 = (asd) => {
+  //   // menambahkan data
+  //   biodata.push(asd)
+  // }
+  // function fungsi4() {
+  //   // mengurutkan biodata berdasarkan nama
+  //   biodata.sort()
+  // }
+  // const fungsi5 = (qwe, urut) => {
+  //   fungsi3(qwe)
+  //   urut()
+  // }
+  // fungsi5('Agus', fungsi4)
 
-  const fungsi6 = {
-    qwe: fungsi4,
-    asd: fungsi3,
-    zxc: [fungsi3, fungsi4]
-  }
-  const fungsi7 = [fungsi4, fungsi3, fungsi6]
-  fungsi6.asd('Joni')
-  fungsi6.qwe()
-  fungsi7[1]('Toni')
-  fungsi7[0]()
-  fungsi7[2].asd('Ali')
-  fungsi7[2].qwe()
+  // const fungsi6 = {
+  //   qwe: fungsi4,
+  //   asd: fungsi3,
+  //   zxc: [fungsi3, fungsi4]
+  // }
+  // const fungsi7 = [fungsi4, fungsi3, fungsi6]
+  // fungsi6.asd('Joni')
+  // fungsi6.qwe()
+  // fungsi7[1]('Toni')
+  // fungsi7[0]()
+  // fungsi7[2].asd('Ali')
+  // fungsi7[2].qwe()
 
-  const fungsi8 = (a, b) => {
-    console.log('aisdy')
-    a()
-    b()
-    return 'dodi lagi makan'
-  }
-  const fungsi9 = () => fungsi4()
-  const fungsi10 = fungsi8(function () {
-    console.log('tambah roger')
-    fungsi3('Roger')
-  }, fungsi9)
-  console.log(fungsi10)
+  // const fungsi8 = (a, b) => {
+  //   console.log('aisdy')
+  //   a()
+  //   b()
+  //   return 'dodi lagi makan'
+  // }
+  // const fungsi9 = () => fungsi4()
+  // const fungsi10 = fungsi8(function () {
+  //   console.log('tambah roger')
+  //   fungsi3('Roger')
+  // }, fungsi9)
+  // console.log(fungsi10)
 
-  const tambah = (b, c, a) => {
-    return a + b
-  }
-  const tampil = (x, y, z) => {
-    const hasiltambah = tambah(y, x, z)
-    console.log(hasiltambah)
-  }
-  tampil(10, 12, 19)
+  // const tambah = (b, c, a) => {
+  //   return a + b
+  // }
+  // const tampil = (x, y, z) => {
+  //   const hasiltambah = tambah(y, x, z)
+  //   console.log(hasiltambah)
+  // }
+  // tampil(10, 12, 19)
 
-  console.log(biodata)
+  // console.log(biodata)
+  const useState = (awal) => {
+    let value = awal
+    const setState = (akhir) => {
+      value = akhir
+    }
+    return [value, setState]
+  }
+
+  const [nama, setNama] = useState('toni')
+  setNama('')
+  console.log(nama)
 </script>

@@ -1,0 +1,81 @@
+<script src="../data/report.js"></script>
+<script>
+  const data = report.transactions
+
+  const hasil = []
+  for (const asd of data) {
+    hasil.push({
+      nama: asd.buildingUnit?.unitName
+    })
+  }
+
+  const hasil1 = []
+  data.map((single) => {
+    hasil1.push({
+      nama: single.buildingUnit?.unitName
+    })
+  })
+  data.forEach(element => {
+    console.log(element)
+  });
+
+  // console.table(hasil1)
+  
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  // console.log(report.transactions[0])
+  // const transaksi = []
+  // for (let index = 0; index < report.transactions.length; index++) {
+  //   const row = report.transactions[index]
+  //   const data = {
+  //     nama: row.buildingUnit?.unitName || '',
+  //     tipe: row.buildingUnit?.unitType || '',
+  //     harga: row.amount,
+  //     dibayar: row.collected,
+  //     lunas: row.collected > 0 && row.collected >= row.amount,
+  //     penyewa:
+  //       row.buildingUnit?.leasings[row.buildingUnit?.leasings.length - 1]
+  //         .tenantName || ''
+  //   }
+  //   transaksi.push(data)
+  // }
+  // console.table(transaksi)
+</script>
