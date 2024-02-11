@@ -2,23 +2,7 @@
   const sekolah = [
     {
       kelas: "1a",
-      siswa: [
-        {
-          nama: "Haidar",
-          umur: 13,
-          kota: "Bekasi",
-        },
-        {
-          nama: "Haidar",
-          umur: 12,
-          kota: "Salatiga",
-        },
-        {
-          nama: "Alghi",
-          umur: 14,
-          kota: "Surabaya",
-        },
-      ],
+      siswa: [],
     },
     {
       kelas: "1b",
@@ -62,13 +46,15 @@
     },
   ];
   for (const row1 of sekolah) {
-    console.log(row1.kelas);
-    // console.log(row.siswa);
-    row.siswa.map((row2) => {
-      console.log(row2.nama, row2.umur, row2.kota);
-    });
-    for (const row2 of row1.siswa) {
-      console.log(row2.nama, row2.umur, row2.kota);
+    if (row1.siswa.length) {
+      console.log(row1.kelas);
+      row1.siswa.map((row2) => {
+        console.log(row2.nama, row2.umur, row2.kota);
+        
+      });
     }
+    // for (const row2 of row1.siswa) {
+    //   console.log(row2.nama, row2.umur, row2.kota);
+    // }
   }
 </script>
