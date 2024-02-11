@@ -1,0 +1,82 @@
+<script>
+  // Create, Read, Update, Delete
+  // test = 'test global'
+  // let var1 = '10.41'
+  // const var2 = 1
+  // console.log(parseFloat(var1))
+  // var1 = 20
+  // console.log(var1)
+  // var1 = null
+  // console.log(var1)
+
+  const arr1 = ["bwm", "volvo", "suzuki", "honda", "audi"]; //create
+  // console.log(arr1.length)
+  // console.log(arr1[1]) //read
+  // // arr1[1] = 'mercedes' //update
+  // arr1.splice(4, 0, 'tesla', 'wuling') //insert
+  // console.log(arr1)
+  // arr1.splice(1, 2) //delete
+  // console.log(arr1)
+
+  const biodata = {
+    nama: "farhan",
+    kelas: "sma",
+    umur: 23,
+    // gadget: ['handphone', 'laptop', 'tas', 'baju']
+  };
+  biodata.gadget = [
+    "laptop",
+    100,
+    ["mangga", "jeruk"],
+    { nama: "handphone", os: "android", merk: "xiaomi", seri: "redmi" },
+  ];
+  // const key = 'umur'
+  // biodata['umur'] = 25 //update
+  // biodata.kota = 'cirebon' //insert
+  // delete biodata.kelas //delete
+  // console.log(Object.keys(biodata))
+  // console.log(biodata[key], biodata.umur)
+  console.log(biodata.gadget[3].merk, biodata.gadget[3]["merk"]);
+  biodata.gadget[3].merk = "apple";
+  delete biodata.gadget[3].seri;
+  console.log(biodata);
+
+  // percabangan;
+  var nilai = 5;
+  const umur = 18;
+  const kelas = "sd";
+  if (kelas == "sma") {
+    if (nilai <= 10 && nilai > 8) {
+      console.log(nilai, "Bagus");
+    } else if (nilai <= 7 && nilai >= 5) {
+      console.log(nilai, "Sedang");
+    } else if (nilai < 5) {
+      console.log(nilai, "Kurang");
+    } else {
+      console.log("Tidak ada nilai");
+    }
+  }
+  const checkUmur = umur > 18;
+  if (checkUmur && nilai <= 10 && nilai > 8) {
+    console.log(nilai, "Bagus");
+  } else if (checkUmur && nilai <= 7 && nilai >= 5) {
+    console.log(nilai, "Sedang");
+  } else if (checkUmur && nilai < 5) {
+    console.log(nilai, "Kurang");
+  } else if (checkUmur) {
+    console.log("Tidak ada nilai");
+  }
+
+  // AND
+  // 1 1 = 1
+  // 1 0 = 0
+  // 0 1 = 0
+  // 0 0 = 0
+
+  // OR
+  // 1 1 = 1
+  // 1 0 = 1
+  // 0 1 = 1
+  // 0 0 = 0
+  // const
+</script>

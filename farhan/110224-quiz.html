@@ -1,17 +1,18 @@
 <script>
   const sekolah = [
     {
-      kelas1: [
+      kelas: "1a",
+      siswa: [
         {
-            nama: "Haidar",
-            umur: 13,
-            kota: "Bekasi",
-          },
+          nama: "Haidar",
+          umur: 13,
+          kota: "Bekasi",
+        },
         {
-            nama: "Haidar",
-            umur: 12,
-            kota: "Salatiga",
-          },
+          nama: "Haidar",
+          umur: 12,
+          kota: "Salatiga",
+        },
         {
           nama: "Alghi",
           umur: 14,
@@ -20,7 +21,8 @@
       ],
     },
     {
-      kelas2: [
+      kelas: "1b",
+      siswa: [
         {
           nama: "Avi",
           umur: 15,
@@ -39,7 +41,8 @@
       ],
     },
     {
-      kelas3: [
+      kelas: "2a",
+      siswa: [
         {
           nama: "Haidar",
           umur: 17,
@@ -58,6 +61,14 @@
       ],
     },
   ];
-  console.log(sekolah[2].kelas3);
-  // delete sekolah[2];
+  for (const row1 of sekolah) {
+    console.log(row1.kelas);
+    // console.log(row.siswa);
+    row.siswa.map((row2) => {
+      console.log(row2.nama, row2.umur, row2.kota);
+    });
+    for (const row2 of row1.siswa) {
+      console.log(row2.nama, row2.umur, row2.kota);
+    }
+  }
 </script>
